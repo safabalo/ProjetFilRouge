@@ -7,7 +7,7 @@ de déterminer les hôpitaux les plus proches.
 
 ### Contenu:
 
-#### Parie Medecin 👩🏻‍⚕️: 
+#### Partie Medecin 👩🏻‍⚕️: 
 * Autant que utilisateur je peux créer un compte patient.
 * Choisir le département qui veut visiter, la ville, et l’hôpital.
 * Peut savoir les médecins disponibles à ce moment.
@@ -15,7 +15,7 @@ de déterminer les hôpitaux les plus proches.
 *	Déterminer la date, et l’heure de rendez-vous.
 *	Définir les maladies précédant, les symptômes ou les maladies chronique.
 
-#### Parie Patient 😷:
+#### Partie Patient 😷:
 *	Crée un compte médecin plus le département que lui appartient.
 *	Peut consulter les rendez-vous déclarer par les patients.
 *	Peut savoir l’historique du dossier médical des patients.
