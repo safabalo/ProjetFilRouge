@@ -7,19 +7,19 @@ de déterminer les hôpitaux les plus proches.
 
 ### Contenu:
 
-#### Partie Medecin 👩🏻‍⚕️: 
+#### Partie Patient 😷: 
 * Autant que utilisateur je peux créer un compte patient.
 * Choisir le département qui veut visiter, la ville, et l’hôpital.
 * Peut savoir les médecins disponibles à ce moment.
-*	Suivre le rendez-vous.
-*	Déterminer la date, et l’heure de rendez-vous.
-*	Définir les maladies précédant, les symptômes ou les maladies chronique.
+* Suivre le rendez-vous.
+* Déterminer la date, et l’heure de rendez-vous.
+* Définir les maladies précédant, les symptômes ou les maladies chronique.
 
-#### Partie Patient 😷:
-*	Crée un compte médecin plus le département que lui appartient.
-*	Peut consulter les rendez-vous déclarer par les patients.
-*	Peut savoir l’historique du dossier médical des patients.
-*	Donner une liste des médicaments et la description de la maladie.
+#### Partie Medecin 👩🏻‍⚕️:
+* Crée un compte médecin plus le département que lui appartient.
+* Peut consulter les rendez-vous déclarer par les patients.
+* Peut savoir l’historique du dossier médical des patients.
+* Donner une liste des médicaments et la description de la maladie.
 
 ## Technologie Utilisés 👩🏻‍💻:
 1. HTML
