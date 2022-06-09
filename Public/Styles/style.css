@@ -9,6 +9,26 @@ body{
     --blue-title:rgb(10, 161, 221);
     --blue-hover:rgb(121, 218, 232);
 }
+/*-------------------------Landing Page-----------------------------*/
+.landing_body{
+	color: #2155CD;
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+.logo_landing{
+	margin-left: -10rem;
+}
+.landing{
+	margin-top: 3rem;
+	height: 100vh;
+	width: 100vw;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+/*------------------------Dashboard------------------------------*/
 .sidebar{
  width: 15rem;
  background-color: var(--blue-side) ;
@@ -107,7 +127,9 @@ table.table tr th:last-child {
 	width: 100px;
 }
 table.table-striped tbody tr:nth-of-type(odd) {
-	background-color: color-mix(in srgb-linear, #34c9eb 90%, white);
+	background-color: #f4f6fd;
+
+	
 }
 table.table-striped.table-hover tbody tr:hover {
 	background: #f5f5f5;
@@ -266,4 +288,58 @@ table.table .avatar {
 }	
 .modal form label {
 	font-weight: normal;
-}	
+}
+/* SignIn form */
+.form_body{
+	overflow-y: hidden;
+}
+.form_legend{
+	color: #79DAE8;
+	font-weight: bolder;
+}
+.inputs{
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	border-bottom: 2px solid var(--blue-font);
+}
+#name::placeholder{
+	color: var(--blue-title);
+}
+#email::placeholder{
+	color: var(--blue-title);
+}
+#password::placeholder{
+	color: var(--blue-title);
+}
+#repeat_password::placeholder{
+	color: var(--blue-title);
+}
+#phone::placeholder{
+	color: var(--blue-title);
+}
+#birthday{
+	color: var(--blue-title);
+}
+.label{
+	color: var(--blue-font);
+}
+.formulaire{
+	margin-top: 1rem;
+	margin-left: 7rem;
+}
+.sub{
+	background-color: #2155CD;
+	padding-left: 20%;
+	padding-right: 20%;
+}
+.logo{
+	margin-left: 10rem;
+}
+.signicons{
+	border-radius: 50%;
+}
+.formulaire_login{
+	margin-top: 8rem;
+	margin-left: 7rem;
+}

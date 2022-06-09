@@ -7,8 +7,9 @@
     <title>Rendez-vous | admin dashboard</title>
     <link rel="stylesheet" href="../../Styles/bootstrap.min.css">
     <link rel="stylesheet" href="../../Styles/style.css">
+    <link rel="stylesheet" href="../../Styles/calendar.css">
 </head>
-<body>
+<body class="light">
     <main class="">
         <section class="d-flex">
             <nav class="sidebar nav navbar d-flex flex-column">
@@ -28,7 +29,7 @@
                         </li>
                         <li class="nav-items d-flex mb-3">
                             <span class="iconify" data-icon="healthicons:inpatient-outline" style="color: #2155cd;" data-width="30" data-height="30"></span>
-                            <a href="#" class="nav-link">Patients</a>
+                            <a href="patients.html" class="nav-link">Patients</a>
                         </li>
                         <li class="nav-items d-flex">
                             <span class="iconify" data-icon="clarity:settings-line" style="color: #2155cd;" data-width="30" data-height="30"></span>
@@ -73,11 +74,50 @@
                         </div>
                       </div>
                 </div>
+                <div>
+                <div class="calendar">
+                        <div class="calendar-header">
+                            <span class="month-picker" id="month-picker">February</span>
+                            <div class="year-picker">
+                                <span class="year-change" id="prev-year">
+                                    <pre><</pre>
+                                </span>
+                                <span id="year">2021</span>
+                                <span class="year-change" id="next-year">
+                                    <pre>></pre>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="calendar-body">
+                            <div class="calendar-week-day">
+                                <div>Sun</div>
+                                <div>Mon</div>
+                                <div>Tue</div>
+                                <div>Wed</div>
+                                <div>Thu</div>
+                                <div>Fri</div>
+                                <div>Sat</div>
+                            </div>
+                            <div class="calendar-days"></div>
+                        </div>
+                        <div class="calendar-footer">
+                            <div class="toggle">
+                                <span>Dark Mode</span>
+                                <div class="dark-mode-switch">
+                                    <div class="dark-mode-switch-ident"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="month-list"></div>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
     <script src="../../Js/bootstrap.bundle.min.js"></script>
     <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="../../Js/calendar.js"></script>
+    <script src="../../Js/script.js"></script>
 </body>
 </html>
