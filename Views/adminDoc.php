@@ -1,3 +1,8 @@
+<?php
+
+ $data = new DoctorsController();
+ $doctors = $data->getAllDoctors();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,8 +10,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rendez-vous || le tableau des Patients</title>
-    <link rel="stylesheet" href="../../Styles/bootstrap.min.css">
-    <link rel="stylesheet" href="../../Styles/style.css">
+    <link rel="stylesheet" href="./Public/Styles/bootstrap.min.css">
+    <link rel="stylesheet" href="./Public/Styles/style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -14,7 +19,7 @@
 </head>
 <body>
     <main class="">
-        <section class="d-flex">
+        <section class="d-flex ">
             <nav class="sidebar nav navbar d-flex flex-column">
                 <div class="navbar-brand d-flex">
                     <span class="iconify" data-icon="healthicons:ministry-of-health-outline" style="color: #2155cd;" data-width="30" data-height="30" id="sidebarToggle"></span>
@@ -24,7 +29,7 @@
                     <ul class="nav d-flex flex-column mb-3" id="list">
                         <li class="nav-items d-flex">
                             <span class="iconify pt-2" data-icon="bi:columns-gap" style="color: #2155cd;" data-width="30" data-height="30"></span>
-                            <a href="#" class="nav-link">Home</a>
+                            <a href="adminDash.html" class="nav-link">Home</a>
                         </li>
                         <li class="nav-items d-flex mb-3 mt-3">
                             <span class="iconify" data-icon="healthicons:doctor-male-outline" style="color: #2155cd;" data-width="30" data-height="30"></span>
@@ -45,13 +50,13 @@
                     </ul>
                 </div>
             </nav>
-            <div class="main">
-                <div class="d-flex justify-content-between">
+            <div class="main" style="width: 90%;">
+                <div class="d-flex justify-content-between" >
                     <span class="iconify" data-icon="material-symbols:arrow-circle-left-outline" style="color: #2155cd;" data-width="30" data-height="30" onclick=""></span>
                     <h1 class="text-center">Hopitale X</h1>
                     <span class="iconify" data-icon="clarity:notification-outline-badged" style="color: #2155cd;" data-width="30" data-height="30"></span>
                 </div>
-                <div class="container-xl">
+                <div class="container-xl" >
                     <div class="table-responsive">
                         <div class="table-wrapper">
                             <div class="table-title">
@@ -60,8 +65,8 @@
                                         <h2>Gestion des <b>Patients</b></h2>
                                     </div>
                                     <div class="col-sm-6">
-                                        <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Employee</span></a>
-                                        <a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Delete</span></a>						
+                                        <a href="#addEmployeeModal" class="btn" style="background-color:#2155cd;" data-toggle="modal"><span class="iconify ms-2" data-icon="carbon:alarm-add" style="color: #0aa1dd;" data-width="20" data-height="20"></span> <span>Add New Employee</span></a>
+                                        <a href="#deleteEmployeeModal" class="btn " style="background-color: #0aa1dd;" data-toggle="modal"><span class="iconify ms-2"  data-icon="fluent:person-delete-16-regular" style="color: #2155cd;" data-width="20" data-height="20"></span> <span>Delete</span></a>						
                                     </div>
                                 </div>
                             </div>
@@ -74,14 +79,16 @@
                                                 <label for="selectAll"></label>
                                             </span>
                                         </th>
-                                        <th>Name</th>
+                                        <th>Nom</th>
                                         <th>Email</th>
-                                        <th>Address</th>
-                                        <th>Phone</th>
+                                        <th>Date disponible</th>
+                                        <th>Séance</th>
+                                        <th>Spécialité</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <?php foreach($doctors as $doctor):?>
                                     <tr>
                                         <td>
                                             <span class="custom-checkbox">
@@ -89,17 +96,22 @@
                                                 <label for="checkbox1"></label>
                                             </span>
                                         </td>
-                                        <td>Thomas Hardy</td>
-                                        <td>thomashardy@mail.com</td>
-                                        <td>89 Chiaroscuro Rd, Portland, USA</td>
-                                        <td>(171) 555-2222</td>
-                                        <td>
-                                            <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                                            <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                                        <td><?php echo $doctor["nom"]?></td>
+                                        <td><?php echo $doctor["email"]?></td>
+                                        <td><?php echo $doctor["date_dispo"]?></td>
+                                        <td><?php echo $doctor["seance"]?></td>
+                                        <td><?php echo $doctor["specialite"]?></td>
+                                        <td class="d-flex flex-row">
+                                            <form methode="POST" action="editDoc" class="d-flex flex-row">
+                                                <input type="hidden" name="id" value="<?php echo $doctor["id"]?>">
+                                                <button class="edit btn" ><span class="iconify" data-icon="eva:edit-outline" style="color: #0aa1dd;" data-width="24" data-height="24"></span></a>
+                                            </form>
+                                            <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><span class="iconify" data-icon="ant-design:delete-outlined" style="color: #2155cd;" data-width="24" data-height="24"></span></i></a>
                                         </td>
                                     </tr>
+                                    <?php endforeach;?>
                                     <tr>
-                                        <td>
+                                        <!-- <td>
                                             <span class="custom-checkbox">
                                                 <input type="checkbox" id="checkbox2" name="options[]" value="1">
                                                 <label for="checkbox2"></label>
@@ -161,7 +173,7 @@
                                             <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
                                             <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                                         </td>
-                                    </tr> 
+                                    </tr>  -->
                                 </tbody>
                             </table>
                             <div class="clearfix">
@@ -179,8 +191,9 @@
                         </div>
                     </div>        
                 </div>
-                <!-- Edit Modal HTML -->
-                <div id="addEmployeeModal" class="modal fade">
+                <!-- ADD Modal HTML -->
+<?php require 'addDoc.php'; ?>
+                <!-- <div id="addEmployeeModal" class="modal fade">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <form>
@@ -213,9 +226,10 @@
                             </form>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <!-- Edit Modal HTML -->
-                <div id="editEmployeeModal" class="modal fade">
+<!--  -->
+                <!-- <div id="editEmployeeModal" class="modal fade">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <form>
@@ -248,39 +262,42 @@
                             </form>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <!-- Delete Modal HTML -->
-                <div id="deleteEmployeeModal" class="modal fade">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <form>
-                                <div class="modal-header">						
-                                    <h4 class="modal-title">Delete Employee</h4>
-                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                </div>
-                                <div class="modal-body">					
-                                    <p>Are you sure you want to delete these Records?</p>
-                                    <p class="text-warning"><small>This action cannot be undone.</small></p>
-                                </div>
-                                <div class="modal-footer">
-                                    <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-                                    <input type="submit" class="btn btn-danger" value="Delete">
-                                </div>
-                            </form>
-                        </div>
+     <div id="deleteEmployeeModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form action="deleteDoc">
+                    <div class="modal-header">						
+                        <h4 class="modal-title">Delete Employee</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     </div>
-                </div>
+                    <div class="modal-body">					
+                        <p>Are you sure you want to delete these Records?</p>
+                        <p class="text-warning"><small>This action cannot be undone.</small></p>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+                        <form action="deleteDoc" method="POST">
+                            <input type="hidden" name="id" value="<?php echo $doctor["id"]?>">
+                        <input type="submit" class="btn btn-danger" value="Delete">
+                        </form>
+                    </div>
+                </form>
             </div>
+        </div>
+    </div>
+</div>
         </section>
     </main>
-    <script src="../../Js/bootstrap.bundle.min.js"></script>
+    <script src="./Public/Js/bootstrap.bundle.min.js"></script>
     <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-    <script src="../../Js/table.js"></script>
-    <script src="../../Js/script.js"></script>
+    <script src="./Public/Js/table.js"></script>
+    <script src="./Public/Js/script.js"></script>
     
 </body>
 </html>

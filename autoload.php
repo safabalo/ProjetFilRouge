@@ -5,10 +5,10 @@ spl_autoload_register('autoload');
 function autoload($class_name)
 {
     $array_paths = [
-        'Controllers/',
-        'Models/',
-        'Views/',
         'DataBase/',
+        'app/classes',
+        'Modles/',
+        'Controllers/'
     ];
 
     $parts = explode('\\', $class_name);

@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Styles/bootstrap.min.css">
-    <link rel="stylesheet" href="../Styles/style.css">
+    <link rel="stylesheet" href="./Public/Styles/bootstrap.min.css">
+    <link rel="stylesheet" href="./Public/Styles/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.css">
-    <link rel="shortcut icon" href="../Assets/SVG&PNG/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="./Public/SVG&PNG/favicon.png" type="image/x-icon">
     <title>Rendez-vous || Page principale</title>
 </head>
 <body class="landing_body">
@@ -21,7 +21,8 @@
                     <li class="nav-item"><a class="nav-link" style="color: #2155CD;" href="#About">Nous sommes</a></li>
                     <li class="nav-item"><a class="nav-link" style="color: #2155CD;" href="#Services">Nos services</a></li>
                     <li class="nav-item"><a class="nav-link" style="color: #2155CD;" href="#Contact">Contactez Nous</a></li>
-                    <li class="nav-item"><a class="btn sub text-white" href="">Login</a></li>
+                    <li class="nav-item me-3"><a class="btn sub text-white" href="">Login</a></li>
+                    <li class="nav-item "><a class="nav-link" style="color: #2155CD;" href="adminlogin">Admin</a></li>
                 </ul>
             </div>
         </div>
@@ -47,7 +48,7 @@
                         <p class="mt-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.</p>
                     </div>
                     <div class="col-md-6">
-                            <img src="../Assets/SVG&PNG/Doctor-bro.png" alt="" width="100%" height="80%">
+                            <img src="./Public/SVG&PNG/Doctor-bro.png" alt="" width="100%" height="80%">
                         
                     </div>
                 </div>
@@ -57,7 +58,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
-                        <img src="../Assets/SVG&PNG/Doctors-3.png" alt="" width="100%" height="80%">
+                        <img src="./Public/SVG&PNG/Doctors-3.png" alt="" width="100%" height="80%">
                     </div>
                     <div class="col-md-6 d-flex flex-column align-items-center">
                         <h2 class="mt-5">Nos services</h2>
@@ -69,13 +70,14 @@
         <section>
             <div class="container">
                 <div class="row">
+                    <div class="col-md-6">
+                        <img src="./Public/SVG&PNG/Doctor-bro.png" alt="" width="100%" height="80%">
+                    </div>
                     <div class="col-md-6 d-flex flex-column align-items-center">
                         <h2 class="mt-5">Contactez-nous</h2>
                         <p class="mt-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.</p>
                     </div>
-                    <div class="col-md-6">
-                        <img src="../Assets/SVG&PNG/Doctor-bro.png" alt="" width="100%" height="80%">
-                    </div>
+                    
                 </div>
             </div>
         </section>
@@ -126,7 +128,7 @@
 
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.js"></script>
-    <script src="../Js/bootstrap.bundle.js"></script>
+    <script src="./Public/Js/bootstrap.bundle.js"></script>
     <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
 </body>
 </html>

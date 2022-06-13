@@ -1,11 +1,10 @@
 <?php 
 if(isset($_POST['submit'])){
-  $loginPatient = new PatientController();
-  $loginPatient->auth();
+  $loginAdmin = new AdminController();
+  $loginAdmin->auth();
 }
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +15,7 @@ if(isset($_POST['submit'])){
     <link rel="stylesheet" href="./Public/Styles/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.css">
     <link rel="shortcut icon" href="./Public/SVG&PNG/favicon.png" type="image/x-icon">
-    <title>Rendez-vous || Login</title>
+    <title>Rendez-vous || Admin Login</title>
 </head>
 <body class="d-flex form_body">
     <section class="w-50 ms-5 form_sect">
