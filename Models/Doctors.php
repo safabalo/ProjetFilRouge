@@ -24,7 +24,7 @@ class Doctors{
     //     }
     // }
 
-    static function getDoctor($data) { 
+    static function getDoctors($data) { 
         $id = $data["id"];
         try{
             $query="SELECT * FROM `doctors` WHERE id = :id";

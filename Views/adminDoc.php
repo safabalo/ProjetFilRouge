@@ -12,6 +12,7 @@
     <title>Rendez-vous || le tableau des Patients</title>
     <link rel="stylesheet" href="./Public/Styles/bootstrap.min.css">
     <link rel="stylesheet" href="./Public/Styles/style.css">
+    <link rel="shortcut icon" href="./Public/SVG&PNG/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -65,8 +66,7 @@
                                         <h2>Gestion des <b>Patients</b></h2>
                                     </div>
                                     <div class="col-sm-6">
-                                        <a href="#addEmployeeModal" class="btn" style="background-color:#2155cd;" data-toggle="modal"><span class="iconify ms-2" data-icon="carbon:alarm-add" style="color: #0aa1dd;" data-width="20" data-height="20"></span> <span>Add New Employee</span></a>
-                                        <a href="#deleteEmployeeModal" class="btn " style="background-color: #0aa1dd;" data-toggle="modal"><span class="iconify ms-2"  data-icon="fluent:person-delete-16-regular" style="color: #2155cd;" data-width="20" data-height="20"></span> <span>Delete</span></a>						
+                                        <a href="addDoc" class="btn" style="background-color:#2155cd;"><span class="iconify ms-2" data-icon="carbon:alarm-add" style="color: #0aa1dd;" data-width="20" data-height="20"></span> <span>Ajouté un docteur</span></a>
                                     </div>
                                 </div>
                             </div>
@@ -102,78 +102,18 @@
                                         <td><?php echo $doctor["seance"]?></td>
                                         <td><?php echo $doctor["specialite"]?></td>
                                         <td class="d-flex flex-row">
-                                            <form methode="POST" action="editDoc" class="d-flex flex-row">
+                                            <form method="POST" action="editDoc" class="d-flex flex-row">
                                                 <input type="hidden" name="id" value="<?php echo $doctor["id"]?>">
-                                                <button class="edit btn" ><span class="iconify" data-icon="eva:edit-outline" style="color: #0aa1dd;" data-width="24" data-height="24"></span></a>
+                                                <button class="edit btn" ><span class="iconify" data-icon="eva:edit-outline" style="color: #0aa1dd;" data-width="24" data-height="24"></span></button>
                                             </form>
-                                            <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><span class="iconify" data-icon="ant-design:delete-outlined" style="color: #2155cd;" data-width="24" data-height="24"></span></i></a>
+                                            <form method="POST" action="deleteDoc" class="d-flex flex-row">
+                                                <input type="hidden" name="id" value="<?php echo $doctor["id"]?>">
+                                                <button class="delete btn"><span class="iconify" data-icon="ant-design:delete-outlined" style="color: #2155cd;" data-width="24" data-height="24"></span></i></button>
+                                            </form>
                                         </td>
                                     </tr>
                                     <?php endforeach;?>
                                     <tr>
-                                        <!-- <td>
-                                            <span class="custom-checkbox">
-                                                <input type="checkbox" id="checkbox2" name="options[]" value="1">
-                                                <label for="checkbox2"></label>
-                                            </span>
-                                        </td>
-                                        <td>Dominique Perrier</td>
-                                        <td>dominiqueperrier@mail.com</td>
-                                        <td>Obere Str. 57, Berlin, Germany</td>
-                                        <td>(313) 555-5735</td>
-                                        <td>
-                                            <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                                            <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <span class="custom-checkbox">
-                                                <input type="checkbox" id="checkbox3" name="options[]" value="1">
-                                                <label for="checkbox3"></label>
-                                            </span>
-                                        </td>
-                                        <td>Maria Anders</td>
-                                        <td>mariaanders@mail.com</td>
-                                        <td>25, rue Lauriston, Paris, France</td>
-                                        <td>(503) 555-9931</td>
-                                        <td>
-                                            <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                                            <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <span class="custom-checkbox">
-                                                <input type="checkbox" id="checkbox4" name="options[]" value="1">
-                                                <label for="checkbox4"></label>
-                                            </span>
-                                        </td>
-                                        <td>Fran Wilson</td>
-                                        <td>franwilson@mail.com</td>
-                                        <td>C/ Araquil, 67, Madrid, Spain</td>
-                                        <td>(204) 619-5731</td>
-                                        <td>
-                                            <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                                            <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                                        </td>
-                                    </tr>					
-                                    <tr>
-                                        <td>
-                                            <span class="custom-checkbox">
-                                                <input type="checkbox" id="checkbox5" name="options[]" value="1">
-                                                <label for="checkbox5"></label>
-                                            </span>
-                                        </td>
-                                        <td>Martin Blank</td>
-                                        <td>martinblank@mail.com</td>
-                                        <td>Via Monte Bianco 34, Turin, Italy</td>
-                                        <td>(480) 631-2097</td>
-                                        <td>
-                                            <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                                            <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                                        </td>
-                                    </tr>  -->
                                 </tbody>
                             </table>
                             <div class="clearfix">
@@ -191,103 +131,29 @@
                         </div>
                     </div>        
                 </div>
-                <!-- ADD Modal HTML -->
-<?php require 'addDoc.php'; ?>
-                <!-- <div id="addEmployeeModal" class="modal fade">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <form>
-                                <div class="modal-header">						
-                                    <h4 class="modal-title">Add Employee</h4>
-                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                </div>
-                                <div class="modal-body">					
-                                    <div class="form-group">
-                                        <label>Name</label>
-                                        <input type="text" class="form-control" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Email</label>
-                                        <input type="email" class="form-control" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Address</label>
-                                        <textarea class="form-control" required></textarea>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Phone</label>
-                                        <input type="text" class="form-control" required>
-                                    </div>					
-                                </div>
-                                <div class="modal-footer">
-                                    <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-                                    <input type="submit" class="btn btn-success" value="Add">
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div> -->
-                <!-- Edit Modal HTML -->
-<!--  -->
-                <!-- <div id="editEmployeeModal" class="modal fade">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <form>
-                                <div class="modal-header">						
-                                    <h4 class="modal-title">Edit Employee</h4>
-                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                </div>
-                                <div class="modal-body">					
-                                    <div class="form-group">
-                                        <label>Name</label>
-                                        <input type="text" class="form-control" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Email</label>
-                                        <input type="email" class="form-control" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Address</label>
-                                        <textarea class="form-control" required></textarea>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Phone</label>
-                                        <input type="text" class="form-control" required>
-                                    </div>					
-                                </div>
-                                <div class="modal-footer">
-                                    <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-                                    <input type="submit" class="btn btn-info" value="Save">
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div> -->
-                <!-- Delete Modal HTML -->
-     <div id="deleteEmployeeModal" class="modal fade">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <form action="deleteDoc">
-                    <div class="modal-header">						
-                        <h4 class="modal-title">Delete Employee</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    </div>
-                    <div class="modal-body">					
-                        <p>Are you sure you want to delete these Records?</p>
-                        <p class="text-warning"><small>This action cannot be undone.</small></p>
-                    </div>
-                    <div class="modal-footer">
-                        <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-                        <form action="deleteDoc" method="POST">
-                            <input type="hidden" name="id" value="<?php echo $doctor["id"]?>">
-                        <input type="submit" class="btn btn-danger" value="Delete">
-                        </form>
-                    </div>
-                </form>
-            </div>
-        </div>
+<!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Delete Etudiants</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        You Are Sure To Delete
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <form action="deleteDoc" method="POST">
+          <input type="hidden" name="id" value="<?php echo $docteur['id']?>">
+          <button type="submit" class="border-0 btn btn-dark">
+            Delete
+          </button>
+        </form>
+      </div>
     </div>
-</div>
+  </div>
+</div> -->
+
         </section>
     </main>
     <script src="./Public/Js/bootstrap.bundle.min.js"></script>

@@ -11,7 +11,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rendez-vous || le tableau des Patients</title>
+    <title>Rendez-vous || le tableau des rendez-vous</title>
     <link rel="stylesheet" href="./Public/Styles/bootstrap.min.css">
     <link rel="stylesheet" href="./Public/Styles/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.css">

@@ -18,15 +18,19 @@ class DoctorsController{
 
     public function getOneDoctor(){
         if(isset($_POST['id'])){
-            $data = array('id' => $_POST['id'] );
+            $data = array(
+                'id' => $_POST['id'] 
+            );
         }
-        $doctors= Doctors:: getDoctors($data);
+        $doctors = Doctors::getDoctors($data);
         return $doctors;
        
     }
     public function AddDoctor(){
          if(isset($_POST["submit"])){
+
              $data = array( 
+                "image"=>$_FILES['image']['name'] ,
                  "nom" => $_POST["nom"],
                  "email" => $_POST["email"],
                  "date_dispo" => $_POST["date_dispo"],
@@ -34,24 +38,25 @@ class DoctorsController{
                  "specialite" => $_POST["specialite"]
              );
              $result = Doctors::Add($data);
-            //  if($result == "ok"){
-            //     //  Session::set('success', 'professeur ajouté');
-            //     header('location: adminDoc');
-            //  }else{
-            //      echo $result;
-            //  }
+
+              if($result == "ok"){
+                //  Session::set('success', 'professeur ajouté');
+                header('location: adminDoc');
+             }else{
+                 echo $result;
+             }
          }
     }
     public function UpdateDoctor(){
         if(isset($_POST["submit"])){
             $data = array(
                 "id"=>$_POST['id'],
+                "image"=>$_FILES['image']['name'],
                 "nom"=>$_POST["nom"],
                  "email"=>$_POST["email"],
                  "date_dispo"=>$_POST["date_dispo"],
                  "seance"=>$_POST["seance"],
                  "specialite"=>$_POST["specialite"]
-                 
             );
             $result =  Doctors::update($data);
             if($result == "ok"){
@@ -65,7 +70,7 @@ class DoctorsController{
     public function DeleteDoctor(){
         if(isset($_POST['id'])){
             $data['id'] = $_POST['id'];
-            $result = Doctors:: delete($data);
+            $result = Doctors::delete($data);
         if($result === "ok"){
             // Session::set('success', 'professeur supprimé');
             header("location: adminDoc");
