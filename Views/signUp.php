@@ -31,7 +31,7 @@
             </div>
             <div class="form-group mb-3">
                 <label for="phone" class="label fw-bold">Numéro de téléphone</label>
-                <input type="text" class="form-control inputs" id="phone" name="télé" placeholder="Numéro de téléphone">
+                <input type="text" class="form-control inputs" id="phone" name="phone" placeholder="Numéro de téléphone">
             </div>
             <select class="form-select mb-2" aria-label="Default select example" style="border-color: rgb(33, 85, 205); color: rgb(33, 85, 205); " name="genre">
                 <option selected>Genre</option>

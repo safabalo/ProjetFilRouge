@@ -28,7 +28,6 @@ class DoctorsController{
     }
     public function AddDoctor(){
          if(isset($_POST["submit"])){
-
              $data = array( 
                 "image"=>$_FILES['image']['name'] ,
                  "nom" => $_POST["nom"],
@@ -38,7 +37,7 @@ class DoctorsController{
                  "specialite" => $_POST["specialite"]
              );
              $result = Doctors::Add($data);
-
+             move_uploaded_file($_FILES['image']['tmp_name'], 'Public/Assets/upload/'.$_FILES['image']['name']);
               if($result == "ok"){
                 //  Session::set('success', 'professeur ajouté');
                 header('location: adminDoc');
@@ -51,7 +50,7 @@ class DoctorsController{
         if(isset($_POST["submit"])){
             $data = array(
                 "id"=>$_POST['id'],
-                "image"=>$_FILES['image']['name'],
+                "image"=>$_POST['image'],
                 "nom"=>$_POST["nom"],
                  "email"=>$_POST["email"],
                  "date_dispo"=>$_POST["date_dispo"],
@@ -61,7 +60,7 @@ class DoctorsController{
             $result =  Doctors::update($data);
             if($result == "ok"){
                 // Session::set('success', 'professeur modifié');
-                // header('location: adminDoc');
+                header('location: adminDoc');
             }else{
                 echo $result;
             }

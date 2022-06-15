@@ -22,37 +22,41 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<body>
-    <div class="modal-content"> 
+<body class="d-flex justify-content-center" style="background-color:rgb(10, 161, 221);">
+    <div class="d-flex flex-column align-items-center mt-5 border w-50 pb-4 pt-4" style="background-color:white;"> 
         <form method="POST">
             <legend>
                     <h4>Edite</h4>
             </legend>
 
-            <div class="">
-                <div class="form-group">
+            <div>
+            <div class="form-group mb-2">
+                    <label for="image">Votre image</label>
+                    <input type="file" class="form-control" id="image" name="image" placeholder="image" >
+                </div>		
+                <div class="form-group mb-2">
                     <label for="nom">Nom</label>
                     <input type="text" class="form-control" id="nom" name="nom" placeholder="nom" required value="<?php echo $doctor->nom?>">
                     <div class="errorNom text-danger"></div>
                 </div>
-                <div class="form-group">
+                <div class="form-group mb-2">
                     <label for="email">Email</label>
                     <input type="email" id="email" name="email" class="form-control" placeholder="email" required value="<?php echo $doctor->email?>">
                     <div class="errorEmail text-danger"></div>
                 </div>
-                <div class="form-group">
+                <div class="form-group mb-2">
                     <label for="date">Date disponible</label>
                     <input class="form-control" type="date" id="date_dispo" name="date_dispo" placeholder="date_dispo" required value="<?php echo $doctor->date_dispo?>">
                     <div class="errorerrorDate text-danger"></div>
                 </div>
-                <div class="form-group">
+                <div class="form-group mb-2">
                     <label for="seance">Séance</label>
                     <input class="form-control" type="number" id="seance" name="seance" placeholder="séance" required value="<?php echo $doctor->seance?>">
                     <div class="errorSeance text-danger"></div>
                 </div>
-                <div class="form-group">
+                <div class="form-group mb-4">
                 <label for="exampleInputSpecialite" class="form-label">Spécialité</label>
-                    <select class="form-select form-select-lg shadow-none border-dark " id="specialite" name="specialite">
+                    <select class="form-select form-select-lg shadow-none border-dark " id="specialite" name="specialite" style=" height:37px;">
                         <option></option>
                         <option value="allergologie" <?php echo ($doctor->specialite === 'allergologie') ? 'selected': '';?>>L’allergologie ou l’immunologie</option>
                         <option value="anesthésiologie" <?php echo ($doctor->specialite === 'anesthésiologie') ? 'selected': '';?>>L'anesthésiologie</option>
@@ -89,8 +93,8 @@
                     <div class="errorSpecialite text-danger"></div>
                 </div>
                 <div>
-                    <a class="btn btn-default" href="adminDoc">Cancel</a>
-                    <input type="submit" class="btn btn-info" value="Save" name="submit">
+                    <a class="btn btn-default" href="adminDoc" style="background-color: rgb(121, 218, 232); padding-left: 10%; padding-right: 10%; color:#2155CD;">Cancel</a>
+                    <input type="submit" class="btn" value="Save" name="submit" style="background-color: #2155CD; padding-left: 12%; padding-right: 12%;">
                 </div>
                 
             </div>                        	

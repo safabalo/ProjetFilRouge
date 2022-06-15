@@ -368,3 +368,13 @@ table.table .avatar {
 	margin-top: 8rem;
 	margin-left: 7rem;
 }
+/* formulaire d'addition et modification */
+#seance::placeholder{
+	color: var(--blue-title);
+}
+.submit{
+	background-color: #2155CD;
+	padding-left: 20%;
+	padding-right: 20%;
+	color:white;
+}

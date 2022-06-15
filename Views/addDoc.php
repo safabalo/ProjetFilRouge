@@ -17,40 +17,40 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.css">
     <link rel="shortcut icon" href="./Public/SVG&PNG/favicon.png" type="image/x-icon">
 </head>
-<body>
-    <div class="">
-        <form method="POST" action="" class="form">
+<body class="d-flex justify-content-center" style="background-color:rgb(10, 161, 221);">
+    <div class="d-flex flex-column align-items-center mt-5 border w-50 pb-4 pt-4" style="background-color:white;">
+        <form method="POST" action="" class="form w-75" enctype="multipart/form-data" >
             <legend>						
-                <h4 class="modal-title">Ajouté un Docteur</h4>
+                <h4>Ajouté un Docteur</h4>
             </legend>
             <div>
-            <div class="form-group">
+            <div class="form-group mb-2">
                     <label for="image">Votre image</label>
                     <input type="file" class="form-control" id="image" name="image" placeholder="image" >
                 </div>					
-                <div class="form-group">
+                <div class="form-group mb-2">
                     <label for="nom">Nom</label>
-                    <input type="text" class="form-control" id="nom" name="nom" placeholder="nom" >
+                    <input type="text" class="form-control" id="nom" name="nom" placeholder="nom">
                     <div class="errorNom text-danger"></div>
                 </div>
-                <div class="form-group">
+                <div class="form-group mb-2">
                     <label for="email">Email</label>
                     <input type="email" id="email" name="email" class="form-control" placeholder="email" >
                     <div class="errorEmail text-danger"></div>
                 </div>
-                <div class="form-group">
+                <div class="form-group mb-2">
                     <label for="date">Date disponible</label>
                     <input class="form-control" type="date" id="date_dispo" name="date_dispo" placeholder="date" >
                     <div class="errorerrorDate text-danger"></div>
                 </div>
-                <div class="form-group">
+                <div class="form-group mb-2">
                     <label for="seance">Séance</label>
                     <input class="form-control" type="number" id="seance" name="seance" placeholder="séance">
                     <div class="errorSeance text-danger"></div>
                 </div>
-                <div class="form-group">
+                <div class="form-group mb-4">
                     <label for="exampleInputSpecialite" class="form-label">Spécialité</label>
-                    <select class="form-select form-select-lg shadow-none border-dark " id="specialite" name="specialite">
+                    <select class="form-select form-select-lg shadow-none border-dark " id="specialite" name="specialite" style=" height:37px;">
                         <option></option>
                         <option value="allergologie">L’allergologie ou l’immunologie</option>
                         <option value="anesthésiologie">L'anesthésiologie</option>
@@ -87,8 +87,8 @@
                 </div>					
             </div>
             <div>
-                <a class="btn btn-default" href="adminDoc">Cancel</a>
-                <input type="submit" class="btn btn-success" value="Add" name="submit">
+                <a class="btn btn-default" href="adminDoc" style="background-color: rgb(121, 218, 232); padding-left: 10%; padding-right: 10%; color:#2155CD;">Cancel</a>
+                <input type="submit" class="btn text-white" value="Add" name="submit" style="background-color: #2155CD; padding-left: 12%; padding-right: 12%;">
             </div>
         </form>
     </div>

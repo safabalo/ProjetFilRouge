@@ -24,20 +24,16 @@
                     <div>
                         <ul class="nav d-flex flex-column mb-3" id="list">
                             <li class="nav-items d-flex">
-                                <span class="iconify pt-2" data-icon="bi:columns-gap" style="color: #2155cd;" data-width="30" data-height="30"></span>
-                                <a href="adminDash.html" class="nav-link">Home</a>
-                            </li>
-                            <li class="nav-items d-flex mb-3 mt-3">
-                                <span class="iconify" data-icon="healthicons:doctor-male-outline" style="color: #2155cd;" data-width="30" data-height="30"></span>
-                                <a href="#" class="nav-link">Docteurs</a>
+                            <span class="iconify" data-icon="healthicons:doctor-male-outline" style="color: #2155cd;" data-width="30" data-height="30"></span>
+                                <a href="adminDash.html" class="nav-link">Rendez-vous</a>
                             </li>
                             <li class="nav-items d-flex mb-3">
                                 <span class="iconify" data-icon="healthicons:inpatient-outline" style="color: #2155cd;" data-width="30" data-height="30"></span>
-                                <a href="#" class="nav-link">Patients</a>
+                                <a href="#" class="nav-link">Symptomes</a>
                             </li>
                             <li class="nav-items d-flex">
                                 <span class="iconify" data-icon="clarity:settings-line" style="color: #2155cd;" data-width="30" data-height="30"></span>
-                                <a href="" class="nav-link">Paramètres</a>
+                                <a href="" class="nav-link">Patients</a>
                             </li>
                             <li class="nav-items d-flex mb-3" id="logout">
                                 <span class="iconify" data-icon="carbon:logout" style="color: #2155cd;" data-width="30" data-height="30"></span>
@@ -61,7 +57,39 @@
                                             <h2>Gestion des <b>Patients</b></h2>
                                         </div>
                                         <div class="col-sm-6">
-                                            <a href="addDoc" class="btn" style="background-color:#2155cd;"><span class="iconify ms-2" data-icon="carbon:alarm-add" style="color: #0aa1dd;" data-width="20" data-height="20"></span> <span>Ajouté un docteur</span></a>
+                                        <select class="form-select form-select-lg shadow-none border-dark " id="specialite" name="specialite">
+                        <option></option>
+                        <option value="allergologie">L’allergologie ou l’immunologie</option>
+                        <option value="anesthésiologie">L'anesthésiologie</option>
+                        <option value="andrologie">L'andrologie</option>
+                        <option value="cardiologie">La cardiologie</option>
+                        <option value="chirurgie">La chirurgie</option>
+                        <option value="dermatologie">La dermatologie</option>
+                        <option value="endocrinologie">L’endocrinologie</option>
+                        <option value="gastro">La gastro-entérologie</option>
+                        <option value="gynecologie">La gynécologie</option>
+                        <option value="geriatrie">La gériatrie</option>
+                        <option value="hematologie">L’hématologie</option>
+                        <option value="hepatologie">L’hépatologie</option>
+                        <option value="infectiologie">L’infectiologie</option>
+                        <option value="generalist">généralist</option>
+                        <option value="Interne">Interne</option>
+                        <option value="neonatologie">La néonatologie</option>
+                        <option value="neurologie">La neurologie</option>
+                        <option value="odontologie">L’odontologie</option>
+                        <option value="oncologie">L’oncologie</option>
+                        <option value="obstetrique">L’obstétrique</option>
+                        <option value="ophtalmologie">L’ophtalmologie</option>
+                        <option value="orthopedie">L’orthopédie</option>
+                        <option value="Oto">L’Oto-rhino-laryngologie</option>
+                        <option value="pediatrie">La pédiatrie</option>
+                        <option value="pneumologie">La pneumologie</option>
+                        <option value="psychiatrie">La psychiatrie</option>
+                        <option value="radiologie">La radiologie</option>
+                        <option value="radiotherapie">La radiothérapie</option>
+                        <option value="rhumatologie">La rhumatologie</option>
+                        <option value="urologie">L’urologie</option>
+                    </select>
                                         </div>
                                     </div>
                                 </div>
@@ -76,30 +104,28 @@
                                             </th>
                                             <th>Nom</th>
                                             <th>Email</th>
-                                            <th>Date disponible</th>
                                             <th>Séance</th>
                                             <th>Spécialité</th>
                                             <th>Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php foreach($doctors as $doctor):?>
                                         <tr>
-                                            <td>
-                                                <span class="custom-checkbox">
-                                                    <input type="checkbox" id="checkbox1" name="options[]" value="1">
-                                                    <label for="checkbox1"></label>
-                                                </span>
+                                        <td>
+                                             <span class="custom-checkbox">
+                                                <input type="checkbox" id="checkbox1" name="options[]" value="1">
+                                                <label for="checkbox1"></label>
+                                            </span>
                                             </td>
-                                            <td><?php echo $doctor["nom"]?></td>
-                                            <td><?php echo $doctor["email"]?></td>
-                                            <td><?php echo $doctor["date_dispo"]?></td>
-                                            <td><?php echo $doctor["seance"]?></td>
-                                            <td><?php echo $doctor["specialite"]?></td>
-                                            <td class="d-flex flex-row">
-                                                <form method="POST" action="editDoc" class="d-flex flex-row">
-                                                    <input type="hidden" name="id" value="<?php echo $doctor["id"]?>">
-                                                    <button class="edit btn" ><span class="iconify" data-icon="eva:edit-outline" style="color: #0aa1dd;" data-width="24" data-height="24"></span></button>
+                                        <td>nom du docteur</td>
+                                        <td>email</td>
+                                        <td>specailite</td>
+                                        <td>seance</td>
+                                        
+                                        <td class="d-flex flex-row">
+                                                <form method="POST" action="" class="d-flex flex-row">
+                                                    <!-- <input type="hidden" name="id" value=""> -->
+                                                    <button class="add btn" ><span class="iconify" data-icon="eva:edit-outline" style="color: #0aa1dd;" data-width="24" data-height="24"></span></button>
                                                 </form>
                                                 <form method="POST" action="deleteDoc" class="d-flex flex-row">
                                                     <input type="hidden" name="id" value="<?php echo $doctor["id"]?>">
@@ -107,8 +133,6 @@
                                                 </form>
                                             </td>
                                         </tr>
-                                        <?php endforeach;?>
-                                        <tr>
                                     </tbody>
                                 </table>
                                 <div class="clearfix">

@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <main class="">
+    <main>
         <section class="d-flex ">
             <nav class="sidebar nav navbar d-flex flex-column">
                 <div class="navbar-brand d-flex">
@@ -79,6 +79,7 @@
                                                 <label for="selectAll"></label>
                                             </span>
                                         </th>
+                                        <th>Docteur</th>
                                         <th>Nom</th>
                                         <th>Email</th>
                                         <th>Date disponible</th>
@@ -96,12 +97,13 @@
                                                 <label for="checkbox1"></label>
                                             </span>
                                         </td>
+                                        <td><img src="Public/Assets/upload/<?php echo $doctor["image"] ?>" width="50px" height="50px"></td>
                                         <td><?php echo $doctor["nom"]?></td>
                                         <td><?php echo $doctor["email"]?></td>
                                         <td><?php echo $doctor["date_dispo"]?></td>
                                         <td><?php echo $doctor["seance"]?></td>
                                         <td><?php echo $doctor["specialite"]?></td>
-                                        <td class="d-flex flex-row">
+                                        <td class="d-flex flex-row p-3 m-0">
                                             <form method="POST" action="editDoc" class="d-flex flex-row">
                                                 <input type="hidden" name="id" value="<?php echo $doctor["id"]?>">
                                                 <button class="edit btn" ><span class="iconify" data-icon="eva:edit-outline" style="color: #0aa1dd;" data-width="24" data-height="24"></span></button>
@@ -131,28 +133,6 @@
                         </div>
                     </div>        
                 </div>
-<!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Delete Etudiants</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        You Are Sure To Delete
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <form action="deleteDoc" method="POST">
-          <input type="hidden" name="id" value="<?php echo $docteur['id']?>">
-          <button type="submit" class="border-0 btn btn-dark">
-            Delete
-          </button>
-        </form>
-      </div>
-    </div>
-  </div>
-</div> -->
 
         </section>
     </main>
