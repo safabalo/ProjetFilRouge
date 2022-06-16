@@ -105,11 +105,11 @@
                                         <td><?php echo $doctor["specialite"]?></td>
                                         <td class="d-flex flex-row p-3 m-0">
                                             <form method="POST" action="editDoc" class="d-flex flex-row">
-                                                <input type="hidden" name="id" value="<?php echo $doctor["id"]?>">
+                                                <input type="hidden" name="id_doctor" value="<?php echo $doctor["id_doctor"]?>">
                                                 <button class="edit btn" ><span class="iconify" data-icon="eva:edit-outline" style="color: #0aa1dd;" data-width="24" data-height="24"></span></button>
                                             </form>
                                             <form method="POST" action="deleteDoc" class="d-flex flex-row">
-                                                <input type="hidden" name="id" value="<?php echo $doctor["id"]?>">
+                                                <input type="hidden" name="id_doctor" value="<?php echo $doctor["id_doctor"]?>">
                                                 <button class="delete btn"><span class="iconify" data-icon="ant-design:delete-outlined" style="color: #2155cd;" data-width="24" data-height="24"></span></i></button>
                                             </form>
                                         </td>

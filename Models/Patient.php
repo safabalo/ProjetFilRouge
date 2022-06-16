@@ -2,12 +2,33 @@
 
 class Patient
 {
-    static function signUp($data){
-        $stmt = DB::connect()->prepare("INSERT INTO patients SET nom=:nom, email=:email, télé=:télé, genre=:genre, date_naissance=:date_naissance, password=:password");
+    static public function getAll()
+    {
+        $stmt = DB::connect()->prepare('SELECT * FROM `patients`');
+        $stmt->execute();
+        return $stmt->fetchAll();
+        $stmt->close(); 
+        $stmt = null;
+    }
+   
+    static function getPatient($data) { 
+        $id = $data["id"];
+        try{
+            $query="SELECT * FROM `patients` WHERE id = :id";
+            $stmt = DB::connect()->prepare($query);
+            $stmt->execute(array(":id"=>$id));
+            $patients=$stmt->fetch(PDO::FETCH_OBJ);
+            return $patients;
+        }catch(PDOException $ex){
+            echo 'error' .$ex->getMessage();
+        } 
+    }
+    static function Add($data){
+        $stmt = DB::connect()->prepare("INSERT INTO `patients` SET nom=:nom, email=:email, genre=:genre, phone=:phone, date_naissance=:date_naissance, password=:password");
         $stmt->bindParam(":nom", $data["nom"]);
         $stmt->bindParam(":email", $data["email"]);
-        $stmt->bindParam(":télé", $data["télé"]);
         $stmt->bindParam(":genre", $data["genre"]);
+        $stmt->bindParam(":phone", $data["phone"]);
         $stmt->bindParam(":date_naissance", $data["date_naissance"]);
         $stmt->bindParam(":password", $data["password"]);
         if($stmt->execute()){
@@ -16,22 +37,52 @@ class Patient
             return 'error';
         }
     } 
-    static function login($data) {
-        $email = $data["email"];
-            try{
-                $query="SELECT * FROM patients WHERE email = :email";
-                $stmt = DB::connect()->prepare($query);
-                $stmt->execute(array(":email"=>$email));
-                $Patients = $stmt->fetch(PDO::FETCH_OBJ);
-                return $Patients;
-                if($stmt->execute()){
-                    return "oki";
-            } 
-            }catch(PDOException $ex){
-                echo 'error' .$ex->getMessage();
-            } 
-        
+    static public function update($data){
+        $stmt = DB::connect()->prepare("UPDATE `patients` SET image=:image, nom=:nom, email=:email,date_dispo=:date_dispo,seance=:seance, specialite=:specialite WHERE  id=:id");
+            $stmt->bindParam(":image", $data["image"]);
+            $stmt->bindParam(":nom", $data["nom"]);
+            $stmt->bindParam(":email", $data["email"]);
+            $stmt->bindParam(":genre", $data["genre"]);
+            $stmt->bindParam(":phone", $data["phone"]);
+            $stmt->bindParam(":date_naissance", $data["date_naissance"]);
+            $stmt->bindParam(":password", $data["password"]);
+            $stmt->bindParam(":id", $data["id"]);
+        if($stmt->execute()){
+            return 'ok';
+        }else{
+            return 'error';
+        }
      }
+     static public function delete($data){
+        $id = $data['id'];
+       try{
+           $query='DELETE FROM `patients` WHERE id = :id';
+           $stmt = DB::connect()->prepare($query);
+           $stmt->execute(array(':id'=> $id));
+           if($stmt->execute()){
+               return 'ok';
+           }
+       }catch(PDOException $ex){
+           echo 'erreur' .$ex->getMessage();
+       } 
+   }
+
+    // static function login($data) {
+    //     $email = $data["email"];
+    //         try{
+    //             $query="SELECT * FROM patients WHERE email = :email";
+    //             $stmt = DB::connect()->prepare($query);
+    //             $stmt->execute(array(":email"=>$email));
+    //             $Patients = $stmt->fetch(PDO::FETCH_OBJ);
+    //             return $Patients;
+    //             if($stmt->execute()){
+    //                 return "oki";
+    //         } 
+    //         }catch(PDOException $ex){
+    //             echo 'error' .$ex->getMessage();
+    //         } 
+        
+    //  }
 }
 
 ?>

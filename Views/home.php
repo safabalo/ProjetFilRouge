@@ -36,7 +36,7 @@
                         <br>
                         Checker vos rendez-vous
                     </p>
-                    <a href="signIn" class="btn" style="background-color:rgb(33, 85, 205); color: rgb(232, 249, 253);">Redez-vous</a>
+                    <a href="signUp" class="btn" style="background-color:rgb(33, 85, 205); color: rgb(232, 249, 253);">Redez-vous</a>
                     <a href="Login" class="btn" style="background-color: rgb(232, 249, 253); color:rgb(33, 85, 205);">votre rendez vous</a>
             </div>
         </section>

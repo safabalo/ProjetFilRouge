@@ -11,25 +11,25 @@ class Doctors{
         $stmt = null;
     }
 
-    // static public function searchProfesseur($data){
-    //     $search = $data['search'];
-    //     try {
-    //         $query = 'SELECT * FROM professeurs WHERE Nom LIKE ?';
-    //         $stmt =  DB::connect()->prepare($query);
-    //         $stmt->execute(array('%'.$search.'%'));
-    //         $professeur = $stmt->fetchAll();
-    //         return $professeur;
-    //     } catch (PDOException $ex){
-    //         echo "erreur" . $ex->getMessage();
-    //     }
-    // }
+    static public function searchDoctor($data){
+        $search = $data['search'];
+        try {
+            $query = 'SELECT * FROM doctors WHERE specialite LIKE ?';
+            $stmt =  DB::connect()->prepare($query);
+            $stmt->execute(array('%'.$search.'%'));
+            $doctors = $stmt->fetchAll();
+            return $doctors;
+        } catch (PDOException $ex){
+            echo "erreur" . $ex->getMessage();
+        }
+    }
 
     static function getDoctors($data) { 
-        $id = $data["id"];
+        $id = $data["id_doctor"];
         try{
-            $query="SELECT * FROM `doctors` WHERE id = :id";
+            $query="SELECT * FROM `doctors` WHERE id_doctor = :id_doctor";
             $stmt = DB::connect()->prepare($query);
-            $stmt->execute(array(":id"=>$id));
+            $stmt->execute(array(":id_doctor"=>$id));
             $doctors=$stmt->fetch(PDO::FETCH_OBJ);
             return $doctors;
         }catch(PDOException $ex){
@@ -52,14 +52,14 @@ class Doctors{
         }
      }
      static public function update($data){
-        $stmt = DB::connect()->prepare("UPDATE `doctors` SET image=:image, nom=:nom, email=:email,date_dispo=:date_dispo,seance=:seance, specialite=:specialite WHERE  id=:id");
+        $stmt = DB::connect()->prepare("UPDATE `doctors` SET image=:image, nom=:nom, email=:email,date_dispo=:date_dispo,seance=:seance, specialite=:specialite WHERE  id_doctor=:id_doctor");
             $stmt->bindParam(":image", $data["image"]);
             $stmt->bindParam(":nom", $data["nom"]);
 			$stmt->bindParam(":email", $data["email"]);
 			$stmt->bindParam(":date_dispo", $data["date_dispo"]);
 			$stmt->bindParam(":seance", $data["seance"]);
 			$stmt->bindParam(":specialite", $data["specialite"]);
-            $stmt->bindParam(":id", $data["id"]);
+            $stmt->bindParam(":id_doctor", $data["id_doctor"]);
         if($stmt->execute()){
             return 'ok';
         }else{
@@ -67,11 +67,11 @@ class Doctors{
         }
      }
     static public function delete($data){
-         $id = $data['id'];
+         $id = $data['id_doctor'];
         try{
-            $query='DELETE FROM `doctors` WHERE id = :id';
+            $query='DELETE FROM `doctors` WHERE id_doctor = :id_doctor';
             $stmt = DB::connect()->prepare($query);
-            $stmt->execute(array(':id'=> $id));
+            $stmt->execute(array(':id_doctor'=> $id));
             if($stmt->execute()){
                 return 'ok';
             }

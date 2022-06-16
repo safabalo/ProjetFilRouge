@@ -1,70 +1,9 @@
 <?php
-$daysOfWeek = array('Dimanche', 'Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi');
-// What is the first day of the month in question?
-$firstDayOfMonth = mktime(0,0,0,$month,1,$year);
 
-// How many days does this month contain?
-$numberDays = date('t',$firstDayOfMonth);
-
-// Retrieve some information about the first day of the
-// month in question.
-$dateComponents = getdate($firstDayOfMonth);
-
-// What is the name of the month in question?
-$monthName = $dateComponents['month'];
-
-// What is the index value (0-6) of the first day of the
-// month in question.
-$dayOfWeek = $dateComponents['wday'];
-// Create the table tag opener and day headers 
-$datetoday = date('Y-m-d'); 
-$calendar = "<table class='table table-bordered'>"; 
-$calendar .= "<center><h2>$monthName $year</h2>"; 
-$calendar .= "<tr>"; 
-// Create the calendar headers 
-foreach($daysOfWeek as $day) { 
-     $calendar .= "<th class='header'>$day</th>"; 
-} 
-// Create the rest of the calendar
-// Initiate the day counter, starting with the 1st. 
-$currentDay = 1;
-$calendar .= "</tr><tr>";
-// The variable $dayOfWeek is used to 
-// ensure that the calendar 
-// display consists of exactly 7 columns.
-if($dayOfWeek > 0) { 
-    for($k=0;$k<$dayOfWeek;$k++){ 
-        $calendar .= "<td class='empty'></td>"; 
-    } 
-}
-$month = str_pad($month, 2, "0", STR_PAD_LEFT);
-while ($currentDay <= $numberDays) { 
-    //Seventh column (Saturday) reached. Start a new row. 
-    if ($dayOfWeek == 7) { 
-        $dayOfWeek = 0; 
-        $calendar .= "</tr><tr>"; 
-    } 
-    $currentDayRel = str_pad($currentDay, 2, "0", STR_PAD_LEFT); 
-    $date = "$year-$month-$currentDayRel"; 
-    $dayname = strtolower(date('l', strtotime($date))); 
-    $eventNum = 0; 
-    $today = $date==date('Y-m-d')? "today" : "";
-    $calendar.="<td><h4>$currentDay</h4>"; 
-    $calendar .="</td>"; 
-    //Increment counters 
-    $currentDay++; 
-    $dayOfWeek++; 
-} 
-//Complete the row of the last week in month, if necessary 
-if ($dayOfWeek != 7) { 
-    $remainingDays = 7 - $dayOfWeek; 
-    for($l=0;$l<$remainingDays;$l++){ 
-        $calendar .= "<td class='empty'></td>"; 
-    } 
-} 
-
-$calendar .= "</tr>"; 
-$calendar .= "</table>";
+//   if(isset($_POST["submit"])){
+//     $data = new DoctorsController();
+//     $newDoctor = $data->AddDoctor();
+//   }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -72,24 +11,39 @@ $calendar .= "</table>";
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../Styles/bootstrap.min.css">
-    <link rel="stylesheet" href="../../Styles/rendez-vous.css">
-    <title>Rendez-vous || Prenez votre rendez-vous en ligne</title>
+    <title>Rendez-vous || le tableau des Patients</title>
+    <link rel="stylesheet" href="./Public/Styles/bootstrap.min.css">
+    <link rel="stylesheet" href="./Public/Styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.css">
+    <link rel="shortcut icon" href="./Public/SVG&PNG/favicon.png" type="image/x-icon">
 </head>
-<body>
-<div class="container"> 
-  <div class="row"> 
-   <div class="col-md-12"> 
-    <div id="calendar"> 
-     <?php 
-      $dateComponents = getdate(); 
-      $month = $dateComponents['mon']; 
-      $year = $dateComponents['year']; 
-      echo build_calendar($month,$year); 
-     ?> 
-    </div> 
-   </div> 
-  </div> 
- </div>   
+<body class="d-flex justify-content-center" style="background-color:rgb(10, 161, 221);">
+    <div class="d-flex flex-column align-items-center mt-5 border w-50 pb-4 pt-4" style="background-color:white;">
+        <form method="POST" action="" class="form w-75" enctype="multipart/form-data" >
+            <legend>						
+                <h4>Choisir une date</h4>
+            </legend>
+            <div>
+            <div class="form-group mb-2">
+                <label for="date" class="form-label">Date</label>
+                <input class="form-control" type="date" id="date" name="rendez_vous" placeholder="date" >
+            </div>
+            <div class="form-group mb-2">
+                <label for="heure" class="form-label">Heure</label>
+                <input class="form-control" type="time" id="heure" name="rendez_vous" placeholder="heure" >
+            <div>
+                <a class="btn btn-default" href="PatientDoc" style="background-color: rgb(121, 218, 232); padding-left: 10%; padding-right: 10%; color:#2155CD;">Cancel</a>
+                <input type="submit" class="btn text-white" value="Add" name="submit" style="background-color: #2155CD; padding-left: 12%; padding-right: 12%;">
+            </div>
+        </form>
+    </div>
+    <script src="./Public/Js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="./Public/Js/table.js"></script>
+    <script src="./Public/Js/script.js"></script>
 </body>
 </html>

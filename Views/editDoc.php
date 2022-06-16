@@ -1,5 +1,5 @@
 <?php 
-  if(isset($_POST['id'])) { 
+  if(isset($_POST['id_doctor'])) { 
       $existDoc = new DoctorsController;
       $doctor = $existDoc->getOneDoctor();
   }
@@ -89,7 +89,7 @@
                         <option value="rhumatologie" <?php echo ($doctor->specialite === 'rhumatologie') ? 'selected': '';?>>La rhumatologie</option>
                         <option value="urologie" <?php echo ($doctor->specialite === 'urologie') ? 'selected': '';?>>L’urologie</option>
                     </select>
-                    <input type="hidden" name="id" value="<?php echo $doctor->id?>">
+                    <input type="hidden" name="id_doctor" value="<?php echo $doctor->id_doctor?>">
                     <div class="errorSpecialite text-danger"></div>
                 </div>
                 <div>

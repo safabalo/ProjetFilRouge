@@ -22,25 +22,24 @@ class PatientController{
                 'id' => $_POST['id'] 
             );
         }
-        $patients = Patient::getPatients($data);
+        $patients = Patient::getPatient($data);
         return $patients;
        
     }
     public function AddPatient(){
          if(isset($_POST["submit"])){
              $data = array( 
-                "image"=>$_FILES['image']['name'] ,
                  "nom" => $_POST["nom"],
                  "email" => $_POST["email"],
-                 "date_dispo" => $_POST["date_dispo"],
-                 "seance" => $_POST["seance"],
-                 "specialite" => $_POST["specialite"]
+                 "genre" => $_POST["genre"],
+                 "phone" => $_POST["phone"],
+                 "date_naissance" => $_POST["date_naissance"],
+                 "password" => $_POST["password"]
              );
              $result = Patient::Add($data);
-             move_uploaded_file($_FILES['image']['tmp_name'], 'Public/Assets/upload/'.$_FILES['image']['name']);
               if($result == "ok"){
                 //  Session::set('success', 'professeur ajouté');
-                header('location: adminDoc');
+                header('location: home');
              }else{
                  echo $result;
              }
@@ -50,13 +49,15 @@ class PatientController{
         if(isset($_POST["submit"])){
             $data = array(
                 "id"=>$_POST['id'],
-                "image"=>$_POST['image'],
+                "image"=>$_FILES['image']['name'] ,
                 "nom"=>$_POST["nom"],
                  "email"=>$_POST["email"],
-                 "date_dispo"=>$_POST["date_dispo"],
-                 "seance"=>$_POST["seance"],
-                 "specialite"=>$_POST["specialite"]
+                 "genre"=>$_POST["genre"],
+                 "phone"=>$_POST["phone"],
+                 "date_naissance"=>$_POST["date_naissance"],
+                "password"=>$_POST["password"]
             );
+            move_uploaded_file($_FILES['image']['tmp_name'], 'Public/Assets/upload/'.$_FILES['image']['name']);
             $result =  Patient::update($data);
             if($result == "ok"){
                 // Session::set('success', 'professeur modifié');

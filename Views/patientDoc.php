@@ -1,3 +1,12 @@
+<?php
+  if(isset($_POST['find'])){
+    $data = new DoctorsController();
+    $doctors = $data->findDoctor();
+    } else{
+        $data = new DoctorsController();
+        $doctors = $data->getAllDoctors();
+      }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,8 +41,11 @@
                                 <a href="#" class="nav-link">Symptomes</a>
                             </li>
                             <li class="nav-items d-flex">
+                                <form method="POST" class="w-100" >
+                                <input type="hidden" name="id" value="<?php echo $patient['id'] ?>">
                                 <span class="iconify" data-icon="clarity:settings-line" style="color: #2155cd;" data-width="30" data-height="30"></span>
-                                <a href="" class="nav-link">Patients</a>
+                                <a href="" class="nav-link">Parametres</a>
+                                </form>
                             </li>
                             <li class="nav-items d-flex mb-3" id="logout">
                                 <span class="iconify" data-icon="carbon:logout" style="color: #2155cd;" data-width="30" data-height="30"></span>
@@ -57,39 +69,12 @@
                                             <h2>Gestion des <b>Patients</b></h2>
                                         </div>
                                         <div class="col-sm-6">
-                                        <select class="form-select form-select-lg shadow-none border-dark " id="specialite" name="specialite">
-                        <option></option>
-                        <option value="allergologie">L’allergologie ou l’immunologie</option>
-                        <option value="anesthésiologie">L'anesthésiologie</option>
-                        <option value="andrologie">L'andrologie</option>
-                        <option value="cardiologie">La cardiologie</option>
-                        <option value="chirurgie">La chirurgie</option>
-                        <option value="dermatologie">La dermatologie</option>
-                        <option value="endocrinologie">L’endocrinologie</option>
-                        <option value="gastro">La gastro-entérologie</option>
-                        <option value="gynecologie">La gynécologie</option>
-                        <option value="geriatrie">La gériatrie</option>
-                        <option value="hematologie">L’hématologie</option>
-                        <option value="hepatologie">L’hépatologie</option>
-                        <option value="infectiologie">L’infectiologie</option>
-                        <option value="generalist">généralist</option>
-                        <option value="Interne">Interne</option>
-                        <option value="neonatologie">La néonatologie</option>
-                        <option value="neurologie">La neurologie</option>
-                        <option value="odontologie">L’odontologie</option>
-                        <option value="oncologie">L’oncologie</option>
-                        <option value="obstetrique">L’obstétrique</option>
-                        <option value="ophtalmologie">L’ophtalmologie</option>
-                        <option value="orthopedie">L’orthopédie</option>
-                        <option value="Oto">L’Oto-rhino-laryngologie</option>
-                        <option value="pediatrie">La pédiatrie</option>
-                        <option value="pneumologie">La pneumologie</option>
-                        <option value="psychiatrie">La psychiatrie</option>
-                        <option value="radiologie">La radiologie</option>
-                        <option value="radiotherapie">La radiothérapie</option>
-                        <option value="rhumatologie">La rhumatologie</option>
-                        <option value="urologie">L’urologie</option>
-                    </select>
+                                            <form class="d-flex" method="POST">
+                                                <div class="d-flex w-100">
+                                                    <input class="shadow-none border-light rounded" id="search" name="search" type="search" onkeyup="search()" placeholder="Search" aria-label="Search">
+                                                    <input type="submit" name="find" class="btn btn-primary pe-1" value="Recherche">
+                                                </div>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
@@ -102,6 +87,7 @@
                                                     <label for="selectAll"></label>
                                                 </span>
                                             </th>
+                                            <th>Image</th>
                                             <th>Nom</th>
                                             <th>Email</th>
                                             <th>Séance</th>
@@ -110,6 +96,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                    <?php foreach($doctors as $doctor):?>
                                         <tr>
                                         <td>
                                              <span class="custom-checkbox">
@@ -117,22 +104,19 @@
                                                 <label for="checkbox1"></label>
                                             </span>
                                             </td>
-                                        <td>nom du docteur</td>
-                                        <td>email</td>
-                                        <td>specailite</td>
-                                        <td>seance</td>
-                                        
+                                        <td><img src="Public/Assets/upload/<?php echo $doctor["image"] ?>" width="50px" height="50px"></td>
+                                        <td><?php echo $doctor["nom"]?></td>
+                                        <td><?php echo $doctor["email"]?></td>
+                                        <td><?php echo $doctor["seance"]?></td>
+                                        <td><?php echo $doctor["specialite"]?></td>
                                         <td class="d-flex flex-row">
                                                 <form method="POST" action="" class="d-flex flex-row">
                                                     <!-- <input type="hidden" name="id" value=""> -->
-                                                    <button class="add btn" ><span class="iconify" data-icon="eva:edit-outline" style="color: #0aa1dd;" data-width="24" data-height="24"></span></button>
-                                                </form>
-                                                <form method="POST" action="deleteDoc" class="d-flex flex-row">
-                                                    <input type="hidden" name="id" value="<?php echo $doctor["id"]?>">
-                                                    <button class="delete btn"><span class="iconify" data-icon="ant-design:delete-outlined" style="color: #2155cd;" data-width="24" data-height="24"></span></i></button>
+                                                    <button class="add btn" ><span class="iconify" data-icon="carbon:add" style="color: #2155cd;" data-width="30" data-height="30"></span></button>
                                                 </form>
                                             </td>
                                         </tr>
+                                        <?php endforeach;?>
                                     </tbody>
                                 </table>
                                 <div class="clearfix">

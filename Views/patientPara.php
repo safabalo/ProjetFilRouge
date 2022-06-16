@@ -1,12 +1,15 @@
+<<?php 
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../Public/Styles/bootstrap.min.css">
-    <link rel="stylesheet" href="../Public/Styles/style.css">
-    <link rel="shortcut icon" href="../Public/SVG&PNG/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="./Public/Styles/bootstrap.min.css">
+    <link rel="stylesheet" href="./Public/Styles/style.css">
+    <link rel="shortcut icon" href="./Public/SVG&PNG/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -52,29 +55,31 @@
                     <span class="iconify" data-icon="clarity:notification-outline-badged" style="color: #2155cd;" data-width="30" data-height="30"></span>
                 </div>
                 <div class="container-xl mt-1">
-                <form action="" method="post">
-                    <div class="d-flex justify-content-center">
-                    <img src="../Public/Assets/upload/avatar.png" width="120px" height="120px" style="border-radius: 50%; border:1px solid #2155cd;"/>
-                    </div>
+                <div class="d-flex justify-content-center">
+                    <img src="" width="120px" height="120px" style="border-radius: 50%; border:1px solid #2155cd;"/>
+                </div>
+                <form action="" method="POST" enctype="multipart/form-data">
+                    <label for="image">Votre image</label>
+                    <input type="file" class="form-control" id="image" name="image" placeholder="image" >
                     <div class="form-group">
                         <label for="">Nom</label>
-                        <input type="text" class="form-control" name="nom" id="name" placeholder="Nom">
+                        <input type="text" class="form-control" name="nom" id="nom" placeholder="Nom complet" value="<?php echo $patient->nom;?>">
                         <label for="">Email</label>
-                        <input type="email" class="form-control" name="email" id="email" placeholder="Prénom">
-                        <label for="birthday">Date de naissance</label>
-                        <input type="date" class="form-control" name="date" id="date">
-                        <label for="">Téléphone</label>
-                        <input type="text" class="form-control" name="phone" id="phone" placeholder="téléphone">
-                        <label for="">Genre</label>
-                        <select class="form-select mb-2" aria-label="Default select example" style="border-color: rgb(33, 85, 205); color: rgb(33, 85, 205); " name="genre">
-                            <option value=""></option>
-                            <option value="Homme">Homme</option>
-                            <option value="Femme">Femme</option>
+                        <input type="email" class="form-control" name="email" id="email" placeholder="Email" value="<?php echo $patient->email;?>">
+                        <label for="date_naissance">Date de naissance</label>
+                        <input type="date" class="form-control" name="date_naissance" id="date_naissance" value="<?php echo $patient->date_naissance;?>">
+                        <label for="phone">Téléphone</label>
+                        <input type="text" class="form-control" name="phone" id="phone" placeholder="téléphone" value="<?php echo $patient->phone;?>">
+                        <label for="genre">Genre</label>
+                        <select class="form-select mb-2" aria-label="Default select example" style="border-color: rgb(33, 85, 205); color: rgb(33, 85, 205); " name="genre" id="genre">
+                            <!-- <option value=""></option> -->
+                            <option value="Homme"<?php echo ($patient->genre === 'Homme') ? 'selected': '';?>>Homme</option>
+                            <option value="Femme"<?php echo ($patient->genre === 'Femme') ? 'selected': '';?>>Femme</option>
                         </select>
                         <label for="">Mot de passe</label>
-                        <input type="text" class="form-control" name="cp" id="cp" placeholder="Code Postal">
+                        <input type="text" class="form-control" name="password" id="password" placeholder="mot de passe" value="<?php echo $patient->password;?>">
                         <label for="">Répéter le Mot de passe</label>
-                        <input type="text" class="form-control" name="cp" id="cp" placeholder="Code Postal">
+                        <input type="password" class="form-control" name="repeat_password" id="repeat_password" placeholder="Répéter mot de passe">
                     </div>
                     <div class="d-flex justify-content-center">
                         <button type="submit" class="btn btn-primary">Enregistrer</button>
@@ -84,7 +89,7 @@
             </div>
 
                    
-            <script src="../Public/Js/bootstrap.bundle.min.js"></script>
+            <script src="./Public/Js/bootstrap.bundle.min.js"></script>
             <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
             <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>

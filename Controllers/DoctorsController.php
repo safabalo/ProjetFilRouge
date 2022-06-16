@@ -8,24 +8,25 @@ class DoctorsController{
         return $doctors; 
     }
 
-    // public function findProfesseur(){
-    //     if(isset($_POST['search'])){
-    //         $data = array('search' => $_POST['search']);
-    //     }
-    //     $professeurs = Professeurs::searchProfesseur($data);
-    //     return $professeurs;
-    // }
+    public function findDoctor(){
+        if(isset($_POST['search'])){
+            $data = array('search' => $_POST['search']);
+        }
+        $doctors = Doctors::searchDoctor($data);
+        return $doctors;
+    }
 
     public function getOneDoctor(){
-        if(isset($_POST['id'])){
+        if(isset($_POST['id_doctor'])){
             $data = array(
-                'id' => $_POST['id'] 
+                'id_doctor' => $_POST['id_doctor'] 
             );
         }
         $doctors = Doctors::getDoctors($data);
         return $doctors;
        
     }
+
     public function AddDoctor(){
          if(isset($_POST["submit"])){
              $data = array( 
@@ -49,7 +50,7 @@ class DoctorsController{
     public function UpdateDoctor(){
         if(isset($_POST["submit"])){
             $data = array(
-                "id"=>$_POST['id'],
+                "id_doctor"=>$_POST['id_doctor'],
                 "image"=>$_POST['image'],
                 "nom"=>$_POST["nom"],
                  "email"=>$_POST["email"],
@@ -67,8 +68,8 @@ class DoctorsController{
         }
    }
     public function DeleteDoctor(){
-        if(isset($_POST['id'])){
-            $data['id'] = $_POST['id'];
+        if(isset($_POST['id_doctor'])){
+            $data['id_doctor'] = $_POST['id_doctor'];
             $result = Doctors::delete($data);
         if($result === "ok"){
             // Session::set('success', 'professeur supprimé');

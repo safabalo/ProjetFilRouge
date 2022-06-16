@@ -18,12 +18,12 @@
 </head>
 <body class="d-flex form_body sign_form">
     <section class="w-50 ms-5 form_sect">
-        <form action="" method="post" class="w-50 formulaire">
+        <form action="" method="POST" class="w-50 formulaire" >
             <span class="iconify logo mb-2" data-icon="healthicons:ministry-of-health-outline" style="color: #2155cd;" data-width="50" data-height="50"></span>
             <legend class="form_legend mb-3">Veuillez entrez vos informations</legend>
             <div class="form-group mb-2">
                 <label for="name" class="label fw-bold">Nom complet</label>
-                <input type="text" class="form-control inputs" id="name" name="nom" placeholder="Nom et Prénom">
+                <input type="text" class="form-control inputs" id="nom" name="nom" placeholder="Nom et Prénom">
             </div>
             <div class="form-group mb-2">
                 <label for="email" class="label fw-bold">Email</label>
@@ -39,8 +39,8 @@
                 <option value="Femme">Femme</option>
             </select>
             <div class="form-group mb-2">
-                <label for="phone" class="label fw-bold">Date de naissance</label>
-                <input type="date" class="form-control inputs" id="birthday" name="date_naissance">
+                <label for="date_naissance" class="label fw-bold">Date de naissance</label>
+                <input type="date" class="form-control inputs" id="date_naissance" name="date_naissance">
             </div>
             <div class="form-group mb-2">
                 <label for="password" class="label fw-bold">Mot de passe</label>
@@ -51,8 +51,9 @@
                 <input type="password" class="form-control inputs" id="repeat_password" name="repeat_password" placeholder="repété votre mot de passe">
             </div>
             <div class="d-flex justify-content-center mb-4">
-                <button type="submit" class="btn sub text-white">Inscrit toi</button>
+                <button type="submit" name="submit" class="btn sub text-white">Inscrit toi</button>
             </div>
+        </form>
             <div class="d-flex justify-content-around">
                 <a href="https://mail.google.com/" class="btn">
                     <img src="./Public/SVG&PNG/googleicon.png" alt="" width="30px" height="30px" class="signicons">
