@@ -20,12 +20,12 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Rendez-vous || Dashboard de patient</title>
+    <title>Rendez-vous || Espace patient</title>
 </head>
 <body>
         <main class="">
             <section class="d-flex ">
-                <nav class="sidebar nav navbar d-flex flex-column">
+                <nav class="sidebar nav navbar d-flex flex-column vh-100">
                     <div class="navbar-brand d-flex">
                         <span class="iconify" data-icon="healthicons:ministry-of-health-outline" style="color: #2155cd;" data-width="30" data-height="30" id="sidebarToggle"></span>
                         <p>Your Hospital</p>
@@ -41,7 +41,7 @@
                                 <a href="#" class="nav-link">Symptomes</a>
                             </li>
                             <li class="nav-items d-flex">
-                                <form method="POST" class="w-100" >
+                                <form method="POST" class="w-100 d-flex" >
                                 <input type="hidden" name="id" value="<?php echo $patient['id'] ?>">
                                 <span class="iconify" data-icon="clarity:settings-line" style="color: #2155cd;" data-width="30" data-height="30"></span>
                                 <a href="" class="nav-link">Parametres</a>
@@ -144,6 +144,5 @@
             <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
             <script src="./Public/Js/table.js"></script>
             <script src="./Public/Js/script.js"></script>
-        </body>
 </body>
 </html>

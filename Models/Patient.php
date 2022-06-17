@@ -12,11 +12,11 @@ class Patient
     }
    
     static function getPatient($data) { 
-        $id = $data["id"];
+        $id_patient = $data["id_patient"];
         try{
-            $query="SELECT * FROM `patients` WHERE id = :id";
+            $query="SELECT * FROM `patients` WHERE id_patient = :id_patient";
             $stmt = DB::connect()->prepare($query);
-            $stmt->execute(array(":id"=>$id));
+            $stmt->execute(array(":id_patient"=>$id_patient));
             $patients=$stmt->fetch(PDO::FETCH_OBJ);
             return $patients;
         }catch(PDOException $ex){
@@ -38,7 +38,7 @@ class Patient
         }
     } 
     static public function update($data){
-        $stmt = DB::connect()->prepare("UPDATE `patients` SET image=:image, nom=:nom, email=:email,date_dispo=:date_dispo,seance=:seance, specialite=:specialite WHERE  id=:id");
+        $stmt = DB::connect()->prepare("UPDATE `patients` SET image=:image, nom=:nom, email=:email, date_dispo=:date_dispo, seance=:seance, specialite=:specialite WHERE  id_patient=:id_patient");
             $stmt->bindParam(":image", $data["image"]);
             $stmt->bindParam(":nom", $data["nom"]);
             $stmt->bindParam(":email", $data["email"]);
@@ -46,7 +46,7 @@ class Patient
             $stmt->bindParam(":phone", $data["phone"]);
             $stmt->bindParam(":date_naissance", $data["date_naissance"]);
             $stmt->bindParam(":password", $data["password"]);
-            $stmt->bindParam(":id", $data["id"]);
+            $stmt->bindParam(":id_patient", $data["id_patient"]);
         if($stmt->execute()){
             return 'ok';
         }else{
@@ -54,11 +54,11 @@ class Patient
         }
      }
      static public function delete($data){
-        $id = $data['id'];
+        $id_patient = $data['id_patient'];
        try{
-           $query='DELETE FROM `patients` WHERE id = :id';
+           $query='DELETE FROM `patients` WHERE id_patient = :id_patient';
            $stmt = DB::connect()->prepare($query);
-           $stmt->execute(array(':id'=> $id));
+           $stmt->execute(array(':id_patient'=> $id_patient));
            if($stmt->execute()){
                return 'ok';
            }

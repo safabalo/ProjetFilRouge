@@ -1,9 +1,9 @@
 <?php
 
-//   if(isset($_POST["submit"])){
-//     $data = new DoctorsController();
-//     $newDoctor = $data->AddDoctor();
-//   }
+  if(isset($_POST["submit"])){
+    $data = new RendezVousController();
+    $newrendez = $data->AddRendezVous();
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,11 +26,11 @@
             <div>
             <div class="form-group mb-2">
                 <label for="date" class="form-label">Date</label>
-                <input class="form-control" type="date" id="date" name="rendez_vous" placeholder="date" >
+                <input class="form-control" type="date" id="date" name="rendezvous" placeholder="date" >
             </div>
             <div class="form-group mb-2">
                 <label for="heure" class="form-label">Heure</label>
-                <input class="form-control" type="time" id="heure" name="rendez_vous" placeholder="heure" >
+                <input class="form-control" type="time" id="heure" name="rendezvous" placeholder="heure" >
             <div>
                 <a class="btn btn-default" href="PatientDoc" style="background-color: rgb(121, 218, 232); padding-left: 10%; padding-right: 10%; color:#2155CD;">Cancel</a>
                 <input type="submit" class="btn text-white" value="Add" name="submit" style="background-color: #2155CD; padding-left: 12%; padding-right: 12%;">

@@ -73,7 +73,7 @@ class DoctorsController{
             $result = Doctors::delete($data);
         if($result === "ok"){
             // Session::set('success', 'professeur supprimé');
-            header("location: adminDoc");
+            header("location:adminDoc");
         }else{
             echo $result;
         }

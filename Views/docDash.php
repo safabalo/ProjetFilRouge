@@ -1,6 +1,6 @@
 <?php
- $data = new DoctorsController();
- $doctors = $data->getAllDoctors();
+$data = new DoctorsController();
+$doctors = $data->getAllDoctors();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -8,7 +8,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rendez-vous || le tableau des Patients</title>
     <link rel="stylesheet" href="./Public/Styles/bootstrap.min.css">
     <link rel="stylesheet" href="./Public/Styles/style.css">
     <link rel="shortcut icon" href="./Public/SVG&PNG/favicon.png" type="image/x-icon">
@@ -16,11 +15,12 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Rendez-vous || Espace Doctor</title>
 </head>
 <body>
-    <main>
+    <main class="">
         <section class="d-flex ">
-            <nav class="sidebar nav navbar d-flex flex-column">
+            <nav class="sidebar nav navbar d-flex flex-column vh-100">
                 <div class="navbar-brand d-flex">
                     <span class="iconify" data-icon="healthicons:ministry-of-health-outline" style="color: #2155cd;" data-width="30" data-height="30" id="sidebarToggle"></span>
                     <p>Your Hospital</p>
@@ -28,20 +28,16 @@
                 <div>
                     <ul class="nav d-flex flex-column mb-3" id="list">
                         <li class="nav-items d-flex">
-                            <span class="iconify pt-2" data-icon="bi:columns-gap" style="color: #2155cd;" data-width="30" data-height="30"></span>
-                            <a href="adminDash.html" class="nav-link">Home</a>
-                        </li>
-                        <li class="nav-items d-flex mb-3 mt-3">
-                            <span class="iconify" data-icon="healthicons:doctor-male-outline" style="color: #2155cd;" data-width="30" data-height="30"></span>
-                            <a href="#" class="nav-link">Docteurs</a>
+                        <span class="iconify" data-icon="healthicons:doctor-male-outline" style="color: #2155cd;" data-width="30" data-height="30"></span>
+                            <a href="adminDash.html" class="nav-link">Rendez-vous</a>
                         </li>
                         <li class="nav-items d-flex mb-3">
                             <span class="iconify" data-icon="healthicons:inpatient-outline" style="color: #2155cd;" data-width="30" data-height="30"></span>
-                            <a href="#" class="nav-link">Patients</a>
+                            <a href="#" class="nav-link">Symptomes</a>
                         </li>
                         <li class="nav-items d-flex">
                             <span class="iconify" data-icon="clarity:settings-line" style="color: #2155cd;" data-width="30" data-height="30"></span>
-                            <a href="" class="nav-link">Paramètres</a>
+                            <a href="" class="nav-link">Parametres</a>
                         </li>
                         <li class="nav-items d-flex mb-3" id="logout">
                             <span class="iconify" data-icon="carbon:logout" style="color: #2155cd;" data-width="30" data-height="30"></span>
@@ -65,7 +61,12 @@
                                         <h2>Gestion des <b>Patients</b></h2>
                                     </div>
                                     <div class="col-sm-6">
-                                        <a href="addDoc" class="btn" style="background-color:#2155cd;"><span class="iconify ms-2" data-icon="carbon:alarm-add" style="color: #0aa1dd;" data-width="20" data-height="20"></span> <span>Ajouté un docteur</span></a>
+                                        <form class="d-flex" method="POST">
+                                            <div class="d-flex w-100">
+                                                <input class="shadow-none border-light rounded" id="search" name="search" type="search" onkeyup="search()" placeholder="Search" aria-label="Search">
+                                                <input type="submit" name="find" class="btn btn-primary pe-1" value="Recherche">
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -78,43 +79,36 @@
                                                 <label for="selectAll"></label>
                                             </span>
                                         </th>
-                                        <th>Docteur</th>
+                                        <!-- <th>Image</th> -->
                                         <th>Nom</th>
-                                        <th>Email</th>
-                                        <th>Date disponible</th>
-                                        <th>Séance</th>
-                                        <th>Spécialité</th>
-                                        <th>Actions</th>
+                                        <th>phone</th>
+                                        <th>Genre</th>
+                                        <th>Date de naissance</th>
+                                        <th>Rendez-vous</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php foreach($doctors as $doctor):?>
+                                <?php foreach($doctors as $doctor):?>
                                     <tr>
-                                        <td>
-                                            <span class="custom-checkbox">
-                                                <input type="checkbox" id="checkbox1" name="options[]" value="1">
-                                                <label for="checkbox1"></label>
-                                            </span>
+                                    <td>
+                                         <span class="custom-checkbox">
+                                            <input type="checkbox" id="checkbox1" name="options[]" value="1">
+                                            <label for="checkbox1"></label>
+                                        </span>
                                         </td>
-                                        <td><img src="Public/Assets/upload/<?php echo $doctor["image"] ?>" width="50px" height="50px"></td>
-                                        <td><?php echo $doctor["nom"]?></td>
-                                        <td><?php echo $doctor["email"]?></td>
-                                        <td><?php echo $doctor["date_dispo"]?></td>
-                                        <td><?php echo $doctor["seance"]?></td>
-                                        <td><?php echo $doctor["specialite"]?></td>
-                                        <td class="d-flex flex-row p-3 m-0">
-                                            <form method="POST" action="editDoc" class="d-flex flex-row">
-                                                <input type="hidden" name="id" value="<?php echo $doctor["id_doctor"]?>">
-                                                <button class="edit btn" ><span class="iconify" data-icon="eva:edit-outline" style="color: #0aa1dd;" data-width="24" data-height="24"></span></button>
-                                            </form>
-                                            <form method="POST" action="deleteDoc" class="d-flex flex-row">
-                                                <input type="hidden" name="id_doctor" value="<?php echo $doctor["id_doctor"]?>">
-                                                <button class="delete btn"><span class="iconify" data-icon="ant-design:delete-outlined" style="color: #2155cd;" data-width="24" data-height="24"></span></i></button>
+                                    <td><img src="Public/Assets/upload/<?php echo $doctor["image"] ?>" width="50px" height="50px"></td>
+                                    <td><?php echo $doctor["nom"]?></td>
+                                    <td><?php echo $doctor["email"]?></td>
+                                    <td><?php echo $doctor["seance"]?></td>
+                                    <td><?php echo $doctor["specialite"]?></td>
+                                    <td class="d-flex flex-row">
+                                            <form method="POST" action="" class="d-flex flex-row">
+                                                <!-- <input type="hidden" name="id" value=""> -->
+                                                <button class="add btn" ><span class="iconify" data-icon="carbon:add" style="color: #2155cd;" data-width="30" data-height="30"></span></button>
                                             </form>
                                         </td>
                                     </tr>
                                     <?php endforeach;?>
-                                    <tr>
                                 </tbody>
                             </table>
                             <div class="clearfix">
@@ -132,17 +126,15 @@
                         </div>
                     </div>        
                 </div>
-
-        </section>
-    </main>
-    <script src="./Public/Js/bootstrap.bundle.min.js"></script>
-    <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-    <script src="./Public/Js/table.js"></script>
-    <script src="./Public/Js/script.js"></script>
-    
-</body>
+            </section>
+        </main>
+        <script src="./Public/Js/bootstrap.bundle.min.js"></script>
+        <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+        <script src="./Public/Js/table.js"></script>
+        <script src="./Public/Js/script.js"></script>
+    </body>
 </html>

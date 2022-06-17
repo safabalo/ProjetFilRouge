@@ -17,9 +17,9 @@ class PatientController{
     // }
 
     public function getOnePatient(){
-        if(isset($_POST['id'])){
+        if(isset($_POST['id_patient'])){
             $data = array(
-                'id' => $_POST['id'] 
+                'id_patient' => $_POST['id_patient'] 
             );
         }
         $patients = Patient::getPatient($data);
@@ -48,7 +48,7 @@ class PatientController{
     public function UpdatePatient(){
         if(isset($_POST["submit"])){
             $data = array(
-                "id"=>$_POST['id'],
+                "id"=>$_POST['id_patient'],
                 "image"=>$_FILES['image']['name'] ,
                 "nom"=>$_POST["nom"],
                  "email"=>$_POST["email"],
@@ -68,8 +68,8 @@ class PatientController{
         }
    }
     public function DeleteDoctor(){
-        if(isset($_POST['id'])){
-            $data['id'] = $_POST['id'];
+        if(isset($_POST['id_patient'])){
+            $data['id_patient'] = $_POST['id_patient'];
             $result = Patient::delete($data);
         if($result === "ok"){
             // Session::set('success', 'professeur supprimé');
