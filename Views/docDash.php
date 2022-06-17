@@ -83,9 +83,9 @@ $rendez = $data->getAllRendezVous();
                                         <!-- <th>Image</th> -->
                                         <th>Nom</th>
                                         <th>phone</th>
-                                        <th>Genre</th>
-                                        <th>Date de naissance</th>
                                         <th>Rendez-vous</th>
+                                        <th>Date de naissance</th>
+                                        <th>Genre</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -100,9 +100,10 @@ $rendez = $data->getAllRendezVous();
                                     <!-- <td><img src="Public/Assets/upload/<?//php echo $doctor["image"] ?>" width="50px" height="50px"></td> -->
                                     <td><?php echo $rendezvous["nomcomplet"]?></td>
                                     <td><?php echo $rendezvous["phone"]?></td>
-                                    <td><?php echo $rendezvous["genre"]?></td>
-                                    <td><?php echo $rendezvous["date_naissance"]?></td>
                                     <td><?php echo $rendezvous["rendezvous"]?></td>
+                                    <td><?php echo $rendezvous["date_naissance"]?></td>
+                                    <td><?php echo $rendezvous["genre"]?></td>
+                                    
                                     <!-- <td class="d-flex flex-row">
                                         </td> -->
                                     </tr>
