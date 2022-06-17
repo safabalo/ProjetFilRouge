@@ -16,16 +16,16 @@ class RendezVousController{
     //     return $professeurs;
     // }
 
-//     public function getOneRendezVous(){
-//         if(isset($_POST['id_patient'])){
-//             $data = array(
-//                 'id_patient' => $_POST['id_patient'] 
-//             );
-//         }
-//         $patients = Patient::getPatient($data);
-//         return $patients;
+    // public function getRendezVous(){
+    //     if(isset($_POST['id_rendezvous'])){
+    //         $data = array(
+    //             'id_rendezvous' => $_POST['id_rendezvous'] 
+    //         );
+    //     }
+    //     $rendez = RendezVous::getRendez($data);
+    //     return $rendez;
        
-//     }
+    // }
     public function AddRendezVous(){
          if(isset($_POST["submit"])){
              $data = array( 

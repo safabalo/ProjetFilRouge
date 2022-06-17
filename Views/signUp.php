@@ -23,7 +23,7 @@
             <legend class="form_legend mb-3">Veuillez entrez vos informations</legend>
             <div class="form-group mb-2">
                 <label for="name" class="label fw-bold">Nom complet</label>
-                <input type="text" class="form-control inputs" id="nom" name="nom" placeholder="Nom et Prénom">
+                <input type="text" class="form-control inputs" id="nom" name="nomcomplet" placeholder="Nom et Prénom">
             </div>
             <div class="form-group mb-2">
                 <label for="email" class="label fw-bold">Email</label>

@@ -63,7 +63,7 @@
                     <input type="file" class="form-control" id="image" name="image" placeholder="image" >
                     <div class="form-group">
                         <label for="">Nom</label>
-                        <input type="text" class="form-control" name="nom" id="nom" placeholder="Nom complet" value="<?php echo $patient->nom;?>">
+                        <input type="text" class="form-control" name="nomcomplet" id="nom" placeholder="Nom complet" value="<?php echo $patient->nom;?>">
                         <label for="">Email</label>
                         <input type="email" class="form-control" name="email" id="email" placeholder="Email" value="<?php echo $patient->email;?>">
                         <label for="date_naissance">Date de naissance</label>

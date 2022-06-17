@@ -3,7 +3,7 @@ require_once './autoload.php';
 require_once './Controllers/HomeController.php';
 
 $home = new HomeController();
-$pages= ['home', 'signUp', 'Login', 'adminDash', 'adminlogin', 'adminDoc', 'addDoc', 'editDoc', 'deleteDoc', 'patientDash', 'patientlogin', 'patientDoc','patientPara' ];
+$pages= ['home', 'signUp', 'Login', 'adminDash', 'adminlogin', 'adminDoc', 'addDoc', 'editDoc', 'deleteDoc', 'patientDash', 'patientlogin', 'patientDoc','patientPara', 'docDash' ];
 
 //  if(isset($_SESSION['logged']) && $_SESSION['logged'] === true ){      
     if(isset($_GET['page'])){

@@ -1,6 +1,7 @@
 <?php
-$data = new DoctorsController();
-$doctors = $data->getAllDoctors();
+$data = new RendezVousController();
+$rendez = $data->getAllRendezVous();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -88,7 +89,7 @@ $doctors = $data->getAllDoctors();
                                     </tr>
                                 </thead>
                                 <tbody>
-                                <?php foreach($doctors as $doctor):?>
+                                <?php foreach($rendez as $rendezvous):?>
                                     <tr>
                                     <td>
                                          <span class="custom-checkbox">
@@ -96,17 +97,14 @@ $doctors = $data->getAllDoctors();
                                             <label for="checkbox1"></label>
                                         </span>
                                         </td>
-                                    <td><img src="Public/Assets/upload/<?php echo $doctor["image"] ?>" width="50px" height="50px"></td>
-                                    <td><?php echo $doctor["nom"]?></td>
-                                    <td><?php echo $doctor["email"]?></td>
-                                    <td><?php echo $doctor["seance"]?></td>
-                                    <td><?php echo $doctor["specialite"]?></td>
-                                    <td class="d-flex flex-row">
-                                            <form method="POST" action="" class="d-flex flex-row">
-                                                <!-- <input type="hidden" name="id" value=""> -->
-                                                <button class="add btn" ><span class="iconify" data-icon="carbon:add" style="color: #2155cd;" data-width="30" data-height="30"></span></button>
-                                            </form>
-                                        </td>
+                                    <!-- <td><img src="Public/Assets/upload/<?//php echo $doctor["image"] ?>" width="50px" height="50px"></td> -->
+                                    <td><?php echo $rendezvous["nomcomplet"]?></td>
+                                    <td><?php echo $rendezvous["phone"]?></td>
+                                    <td><?php echo $rendezvous["genre"]?></td>
+                                    <td><?php echo $rendezvous["date_naissance"]?></td>
+                                    <td><?php echo $rendezvous["rendezvous"]?></td>
+                                    <!-- <td class="d-flex flex-row">
+                                        </td> -->
                                     </tr>
                                     <?php endforeach;?>
                                 </tbody>

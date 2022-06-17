@@ -29,7 +29,7 @@ class PatientController{
     public function AddPatient(){
          if(isset($_POST["submit"])){
              $data = array( 
-                 "nom" => $_POST["nom"],
+                 "nomcomplet" => $_POST["nomcomplet"],
                  "email" => $_POST["email"],
                  "genre" => $_POST["genre"],
                  "phone" => $_POST["phone"],
@@ -50,7 +50,7 @@ class PatientController{
             $data = array(
                 "id"=>$_POST['id_patient'],
                 "image"=>$_FILES['image']['name'] ,
-                "nom"=>$_POST["nom"],
+                "nomcomplet"=>$_POST["nomcomplet"],
                  "email"=>$_POST["email"],
                  "genre"=>$_POST["genre"],
                  "phone"=>$_POST["phone"],
