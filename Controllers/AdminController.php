@@ -1,5 +1,7 @@
 <?php
 include('Models/Admin.php');
+include('app/classes/Redirect.php');
+
 class AdminController{
     public function auth(){
         if(isset($_POST['submit'])){
@@ -9,11 +11,11 @@ class AdminController{
                 $_SESSION['logged'] = true;
                 $_SESSION['email'] = $result->email;
                 $_SESSION['nom'] = $result->nom;
-                header('location: adminDoc');
+                Redirect::to('adminDoc');
             }
         else{
            Session::set('error', 'Email ou mot de passe incorrect');
-            header('location: home');
+           Redirect::to('home');
         
         }
     }

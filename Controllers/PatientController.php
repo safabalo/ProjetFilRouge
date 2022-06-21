@@ -1,5 +1,7 @@
 <?php
     include('Models/Patient.php');
+    include('app/classes/Redirect.php');
+    include('app/classes/Sessions.php');
 
 class PatientController{
     public function getAllPatients(){
@@ -45,18 +47,23 @@ class PatientController{
     }
     public function AddPatient(){
          if(isset($_POST["submit"])){
+            $option = [
+                'cost' => 12,
+            ];
+            $password = password_hash($_POST["password"], PASSWORD_BCRYPT, $option);
              $data = array( 
                  "nomcomplet" => $_POST["nomcomplet"],
                  "email" => $_POST["email"],
                  "genre" => $_POST["genre"],
                  "phone" => $_POST["phone"],
                  "date_naissance" => $_POST["date_naissance"],
-                 "password" => $_POST["password"]
+                 "password" => $password
              );
              $result = Patient::Add($data);
               if($result == "ok"){
                 //  Session::set('success', 'professeur ajouté');
-                header('location: home');
+                Redirect::to('Login');
+                // header('location: Login');
              }else{
                  echo $result;
              }

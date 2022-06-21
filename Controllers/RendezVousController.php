@@ -1,5 +1,7 @@
 <?php
     include('Models/RendezVous.php');
+    include('app/classes/Redirect.php');
+    include('app/classes/Session.php');
 
 class RendezVousController{
     public function getAllRendezVous(){
@@ -36,7 +38,7 @@ class RendezVousController{
              $result = RendezVous::Add($data);
               if($result == "ok"){
                 //  Session::set('success', 'professeur ajouté');
-                header('location:docDash');
+                Redirect::to('docDash');
              }else{
                  echo $result;
              }

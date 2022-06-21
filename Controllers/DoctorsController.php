@@ -1,5 +1,7 @@
 <?php
     include('Models/Doctors.php');
+    include('app/classes/Redirect.php');
+    include('app/classes/Session.php');
 
 class DoctorsController{
     public function getAllDoctors(){
@@ -15,11 +17,11 @@ class DoctorsController{
                        $_SESSION['logged'] = true;
                        $_SESSION['email'] = $result->email;
                        $_SESSION['nom'] = $result->nom;
-                       header('location: docDash');
+                          Redirect::to('doctorDash');
                    }
                else{
                   Session::set('error', 'Email ou mot de passe incorrect');
-                   header('location: home');
+                  Redirect::to('home');
                
                }
            }
@@ -46,19 +48,24 @@ class DoctorsController{
 
     public function AddDoctor(){
          if(isset($_POST["submit"])){
+            $option = [
+                'cost' => 12,
+            ];
+            $password = password_hash($_POST["password"], PASSWORD_BCRYPT, $option);
              $data = array( 
                 "image"=>$_FILES['image']['name'] ,
                  "nom" => $_POST["nom"],
                  "email" => $_POST["email"],
-                 "password" => $_POST["password"],
+                 "password" => $password,
                  "seance" => $_POST["seance"],
                  "specialite" => $_POST["specialite"]
              );
              $result = Doctors::Add($data);
              move_uploaded_file($_FILES['image']['tmp_name'], 'Public/Assets/upload/'.$_FILES['image']['name']);
               if($result == "ok"){
-                //  Session::set('success', 'professeur ajouté');
-                header('location: adminDoc');
+                 Session::set('success', 'docteur ajouté');
+                Redirect::to('adminDoc');
+                // header('location: adminDoc');
              }else{
                  echo $result;
              }
@@ -77,8 +84,9 @@ class DoctorsController{
             );
             $result =  Doctors::update($data);
             if($result == "ok"){
-                // Session::set('success', 'professeur modifié');
-                header('location: adminDoc');
+                Session::set('success', 'docteur modifié');
+                Redirect::to('adminDoc');
+                // header('location: adminDoc');
             }else{
                 echo $result;
             }
@@ -90,7 +98,8 @@ class DoctorsController{
             $result = Doctors::delete($data);
         if($result === "ok"){
             // Session::set('success', 'professeur supprimé');
-            header("location:adminDoc");
+            Redirect::to('adminDoc');
+            // header("location:adminDoc");
         }else{
             echo $result;
         }

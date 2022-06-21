@@ -62,6 +62,7 @@
                             <div class="table-title">
                                 <div class="row">
                                     <div class="col-sm-6">
+                                        <?php include('./Views/includes/alert.php');?>
                                         <h2>Gestion des <b>Patients</b></h2>
                                     </div>
                                     <div class="col-sm-6">
