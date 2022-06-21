@@ -39,9 +39,9 @@
                     <div class="errorEmail text-danger"></div>
                 </div>
                 <div class="form-group mb-2">
-                    <label for="date">Date disponible</label>
-                    <input class="form-control" type="date" id="date_dispo" name="date_dispo" placeholder="date" >
-                    <div class="errorerrorDate text-danger"></div>
+                    <label for="date">Password</label>
+                    <input class="form-control" type="password" id="password" name="password" placeholder="mot de passe" >
+                    <!-- <div class="errorerrorDate text-danger"></div> -->
                 </div>
                 <div class="form-group mb-2">
                     <label for="seance">Séance</label>

@@ -45,11 +45,6 @@
                     <div class="errorEmail text-danger"></div>
                 </div>
                 <div class="form-group mb-2">
-                    <label for="date">Date disponible</label>
-                    <input class="form-control" type="date" id="date_dispo" name="date_dispo" placeholder="date_dispo" required value="<?php echo $doctor->date_dispo?>">
-                    <div class="errorerrorDate text-danger"></div>
-                </div>
-                <div class="form-group mb-2">
                     <label for="seance">Séance</label>
                     <input class="form-control" type="number" id="seance" name="seance" placeholder="séance" required value="<?php echo $doctor->seance?>">
                     <div class="errorSeance text-danger"></div>

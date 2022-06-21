@@ -36,12 +36,12 @@
                             <span class="iconify" data-icon="healthicons:doctor-male-outline" style="color: #2155cd;" data-width="30" data-height="30"></span>
                                 <a href="adminDash.html" class="nav-link">Rendez-vous</a>
                             </li>
-                            <li class="nav-items d-flex mb-3">
+                            <li class="nav-items d-flex mb-3 w-100">
                                 <span class="iconify" data-icon="healthicons:inpatient-outline" style="color: #2155cd;" data-width="30" data-height="30"></span>
-                                <a href="#" class="nav-link">Symptomes</a>
+                                <a href="#" class="nav-link">Rendez-vous pris</a>
                             </li>
                             <li class="nav-items d-flex">
-                                <form method="POST" class="w-100 d-flex" >
+                                <form method="POST" class="w-100 d-flex" action="patientPara" >
                                 <input type="hidden" name="id" value="<?php echo $patient['id'] ?>">
                                 <span class="iconify" data-icon="clarity:settings-line" style="color: #2155cd;" data-width="30" data-height="30"></span>
                                 <a href="" class="nav-link">Parametres</a>
@@ -66,7 +66,7 @@
                                 <div class="table-title">
                                     <div class="row">
                                         <div class="col-sm-6">
-                                            <h2>Gestion des <b>Patients</b></h2>
+                                            <h2>Liste des <b>Docteurs</b></h2>
                                         </div>
                                         <div class="col-sm-6">
                                             <form class="d-flex" method="POST">
@@ -104,17 +104,19 @@
                                                 <label for="checkbox1"></label>
                                             </span>
                                             </td>
-                                        <td><img src="Public/Assets/upload/<?php echo $doctor["image"] ?>" width="50px" height="50px"></td>
+                                        <td>
+                                        <img src="Public/Assets/upload/<?php echo $doctor["image"] ?>" width="50px" height="50px">
+                                        </td>
                                         <td><?php echo $doctor["nom"]?></td>
                                         <td><?php echo $doctor["email"]?></td>
                                         <td><?php echo $doctor["seance"]?></td>
                                         <td><?php echo $doctor["specialite"]?></td>
                                         <td class="d-flex flex-row">
-                                                <form method="POST" action="" class="d-flex flex-row">
-                                                    <!-- <input type="hidden" name="id" value=""> -->
-                                                    <button class="add btn" ><span class="iconify" data-icon="carbon:add" style="color: #2155cd;" data-width="30" data-height="30"></span></button>
-                                                </form>
-                                            </td>
+                                            <form method="POST" class="d-flex" action="rendezVous">
+                                                <button class="add btn"><span class="iconify" data-icon="carbon:add" style="color: #2155cd;" data-width="30" data-height="30"></span></button>
+                                                <input type="hidden" name="id_doctor" value="<?php echo $doctor['id_doctor'] ?>">
+                                            </form>
+                                        </td>
                                         </tr>
                                         <?php endforeach;?>
                                     </tbody>

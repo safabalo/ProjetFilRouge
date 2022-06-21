@@ -29,8 +29,10 @@ class RendezVousController{
     public function AddRendezVous(){
          if(isset($_POST["submit"])){
              $data = array( 
-                 "rendezvous" => $_POST["rendezvous"]
+                "rendezvous" => $_POST["rendezvous"],
+                 
              );
+             print_r($data);
              $result = RendezVous::Add($data);
               if($result == "ok"){
                 //  Session::set('success', 'professeur ajouté');

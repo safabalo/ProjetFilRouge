@@ -37,11 +37,11 @@ class Doctors{
         } 
     }
     static public function Add($data){
-        $stmt = DB::connect()->prepare("INSERT INTO `doctors` SET image=:image, nom =:nom, email=:email, date_dispo=:date_dispo, seance=:seance,specialite=:specialite");
+        $stmt = DB::connect()->prepare("INSERT INTO `doctors` SET image=:image, nom =:nom, email=:email, password=:password, seance=:seance,specialite=:specialite");
             $stmt->bindParam(':image', $data['image']);
             $stmt->bindParam(":nom", $data["nom"]);
 			$stmt->bindParam(":email", $data["email"]);
-			$stmt->bindParam(":date_dispo", $data["date_dispo"]);
+			$stmt->bindParam(":password", $data["password"]);
 			$stmt->bindParam(":seance", $data["seance"]);
 			$stmt->bindParam(":specialite", $data["specialite"]);
 
@@ -52,11 +52,10 @@ class Doctors{
         }
      }
      static public function update($data){
-        $stmt = DB::connect()->prepare("UPDATE `doctors` SET image=:image, nom=:nom, email=:email,date_dispo=:date_dispo,seance=:seance, specialite=:specialite WHERE  id_doctor=:id_doctor");
+        $stmt = DB::connect()->prepare("UPDATE `doctors` SET image=:image, nom=:nom, email=:email,seance=:seance, specialite=:specialite WHERE  id_doctor=:id_doctor");
             $stmt->bindParam(":image", $data["image"]);
             $stmt->bindParam(":nom", $data["nom"]);
 			$stmt->bindParam(":email", $data["email"]);
-			$stmt->bindParam(":date_dispo", $data["date_dispo"]);
 			$stmt->bindParam(":seance", $data["seance"]);
 			$stmt->bindParam(":specialite", $data["specialite"]);
             $stmt->bindParam(":id_doctor", $data["id_doctor"]);

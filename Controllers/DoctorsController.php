@@ -33,7 +33,7 @@ class DoctorsController{
                 "image"=>$_FILES['image']['name'] ,
                  "nom" => $_POST["nom"],
                  "email" => $_POST["email"],
-                 "date_dispo" => $_POST["date_dispo"],
+                 "password" => $_POST["password"],
                  "seance" => $_POST["seance"],
                  "specialite" => $_POST["specialite"]
              );

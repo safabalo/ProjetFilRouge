@@ -21,9 +21,14 @@ class RendezVous {
     //     } 
     // }
     static public function Add($data){
-        $stmt = DB::connect()->prepare("INSERT INTO `rendz-vous` SET ,id_rendezvous=:id_rendezvous, rendezvous=:rendezvous , dossier_medical=:id_dossier ,patient=:id_patient , doctor=:id_doctor");
-            $stmt->bindParam(":rendezvous", $data["rendezvous"]);
+       
+        $stmt = DB::connect()->prepare("INSERT INTO `rendz-vous` SET rendezvous=:rendezvous , patient=:patient, docteur=:docteur, dossier_medical=:dossier_medical");
+        $stmt->bindParam(":rendezvous", $data["rendezvous"]);
+        $stmt->bindParam(":patient", 2);
+        $stmt->bindParam(":docteur", 1);
+        $stmt->bindParam(":dossier_medical", 1);
 
+        
         if($stmt->execute()){
             return 'ok';
         }else{

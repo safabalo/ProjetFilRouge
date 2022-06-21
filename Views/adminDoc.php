@@ -81,7 +81,6 @@
                                         <th>Docteur</th>
                                         <th>Nom</th>
                                         <th>Email</th>
-                                        <th>Date disponible</th>
                                         <th>Séance</th>
                                         <th>Spécialité</th>
                                         <th>Actions</th>
@@ -99,7 +98,6 @@
                                         <td><img src="Public/Assets/upload/<?php echo $doctor["image"] ?>" width="50px" height="50px"></td>
                                         <td><?php echo $doctor["nom"]?></td>
                                         <td><?php echo $doctor["email"]?></td>
-                                        <td><?php echo $doctor["date_dispo"]?></td>
                                         <td><?php echo $doctor["seance"]?></td>
                                         <td><?php echo $doctor["specialite"]?></td>
                                         <td class="d-flex flex-row p-3 m-0">
