@@ -7,6 +7,23 @@ class DoctorsController{
         $doctors = Doctors::getAll();
         return $doctors; 
     }
+    public function auth(){
+               if(isset($_POST['submit'])){
+                   $data['email'] = $_POST['email'];
+                   $result = Doctors::loginDoctor($data);
+                   if($result->email === $_POST['email'] && ($_POST['password'] == $result->password)){
+                       $_SESSION['logged'] = true;
+                       $_SESSION['email'] = $result->email;
+                       $_SESSION['nom'] = $result->nom;
+                       header('location: docDash');
+                   }
+               else{
+                  Session::set('error', 'Email ou mot de passe incorrect');
+                   header('location: home');
+               
+               }
+           }
+       }
 
     public function findDoctor(){
         if(isset($_POST['search'])){

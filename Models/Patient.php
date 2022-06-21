@@ -10,7 +10,21 @@ class Patient
         $stmt->close(); 
         $stmt = null;
     }
-   
+    static function loginPatient($data) { 
+        $email = $data["email"];
+        try{
+            $query="SELECT * FROM patients WHERE email = :email";
+            $stmt = DB::connect()->prepare($query);
+            $stmt->execute(array(":email"=>$email));
+            $Patients = $stmt->fetch(PDO::FETCH_OBJ);
+            return $Patients;
+            if($stmt->execute()){
+                return "doctor";
+        } 
+        }catch(PDOException $ex){
+            echo 'error' .$ex->getMessage();
+        } 
+    }
     static function getPatient($data) { 
         $id_patient = $data["id_patient"];
         try{

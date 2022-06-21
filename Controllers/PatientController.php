@@ -16,6 +16,23 @@ class PatientController{
     //     return $professeurs;
     // }
 
+    public function auth(){
+        if(isset($_POST['submit'])){
+            $data['email'] = $_POST['email'];
+            $result = Patient::loginPatient($data);
+            if($result->email === $_POST['email'] && ($_POST['password'] == $result->password)){
+                $_SESSION['logged'] = true;
+                $_SESSION['email'] = $result->email;
+                $_SESSION['nomcomplet'] = $result->nom;
+                header('location: patientDoc');
+            }
+        else{
+           Session::set('error', 'Email ou mot de passe incorrect');
+            header('location: home');
+        
+        }
+    }
+}
     public function getOnePatient(){
         if(isset($_POST['id_patient'])){
             $data = array(

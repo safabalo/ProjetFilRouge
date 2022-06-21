@@ -49,7 +49,7 @@
                             </li>
                             <li class="nav-items d-flex mb-3" id="logout">
                                 <span class="iconify" data-icon="carbon:logout" style="color: #2155cd;" data-width="30" data-height="30"></span>
-                                <a href="" class="nav-link"> LogOut</a>
+                                <a href="LogOut" class="nav-link"> LogOut</a>
                             </li>
                         </ul>
                     </div>

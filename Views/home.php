@@ -21,8 +21,9 @@
                     <li class="nav-item"><a class="nav-link" style="color: #2155CD;" href="#About">Nous sommes</a></li>
                     <li class="nav-item"><a class="nav-link" style="color: #2155CD;" href="#Services">Nos services</a></li>
                     <li class="nav-item"><a class="nav-link" style="color: #2155CD;" href="#Contact">Contactez Nous</a></li>
-                    <li class="nav-item me-3"><a class="btn sub text-white" href="">Login</a></li>
-                    <li class="nav-item "><a class="nav-link" style="color: #2155CD;" href="adminlogin">Admin</a></li>
+                    <li class="nav-item me-4"><a class="btn sub text-white" href="LoginDoc">Doctor</a></li>
+                    <li><a class="btn sub text-white" href="Loginad">Admin</a></li>
+                    <!-- <li class="nav-item "><a class="nav-link" style="color: #2155CD;" href="adminlogin">Admin</a></li> -->
                 </ul>
             </div>
         </div>

@@ -10,7 +10,21 @@ class Doctors{
         $stmt->close(); 
         $stmt = null;
     }
-
+    static function loginDoctor($data) { 
+        $email = $data["email"];
+        try{
+            $query="SELECT * FROM doctors WHERE email = :email";
+            $stmt = DB::connect()->prepare($query);
+            $stmt->execute(array(":email"=>$email));
+            $Doctors = $stmt->fetch(PDO::FETCH_OBJ);
+            return $Doctors;
+            if($stmt->execute()){
+                return "doctor";
+        } 
+        }catch(PDOException $ex){
+            echo 'error' .$ex->getMessage();
+        } 
+    }
     static public function searchDoctor($data){
         $search = $data['search'];
         try {
