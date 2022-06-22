@@ -27,8 +27,9 @@
             <div class="form-group mb-4">
             <input type="datetime-local" id="rendezvous" name="rendezvous" value="" >
             </div>
+            <input type="hidden" name="id_docteur" value="<?= $_POST['id_doctor']?>">
             <div class="form-group mt-3 d-flex justify-content-center">
-                <a class="btn btn-default me-3" href="PatientDoc" style="background-color: rgb(121, 218, 232); padding-left: 10%; padding-right: 10%; color:#2155CD;">Cancel</a>
+                <a class="btn btn-default me-3" href="patientDoc" style="background-color: rgb(121, 218, 232); padding-left: 10%; padding-right: 10%; color:#2155CD;">Cancel</a>
                 <input type="submit" class="btn text-white" value="Add" name="submit" style="background-color: #2155CD; padding-left: 12%; padding-right: 12%;">
             </div>
         </form>

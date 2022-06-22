@@ -30,6 +30,9 @@
                         <span class="iconify" data-icon="healthicons:ministry-of-health-outline" style="color: #2155cd;" data-width="30" data-height="30" id="sidebarToggle"></span>
                         <p>Your Hospital</p>
                     </div>
+                    <div class="">
+                        <img src=""></img>
+                        <p style="color: #2155cd;"><?php echo $_SESSION['nomcomplet']?></p>
                     <div>
                         <ul class="nav d-flex flex-column mb-3" id="list">
                             <li class="nav-items d-flex">

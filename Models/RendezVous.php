@@ -22,11 +22,13 @@ class RendezVous {
     // }
     static public function Add($data){
        
-        $stmt = DB::connect()->prepare("INSERT INTO `rendz-vous` SET rendezvous=:rendezvous , patient=:patient, docteur=:docteur, dossier_medical=:dossier_medical");
-        $stmt->bindParam(":rendezvous", $data["rendezvous"]);
-        $stmt->bindParam(":patient", 2);
-        $stmt->bindParam(":docteur", 1);
-        $stmt->bindParam(":dossier_medical", 1);
+        $stmt = DB::connect()->prepare("INSERT INTO `rendz-vous` SET rendezvous=:rendezvous , patient=:id_patient, docteur=:id_docteur");
+        $new= $data["rendezvous"];
+        $time= str_replace("T", " ", $new);
+        $stmt->bindParam(":rendezvous", $time);
+    
+        $stmt->bindParam(":id_patient", $_SESSION["id_patient"],PDO::PARAM_INT);
+        $stmt->bindParam(":id_docteur", $_POST["id_docteur"],PDO::PARAM_INT);
 
         
         if($stmt->execute()){

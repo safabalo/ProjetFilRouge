@@ -17,7 +17,7 @@ class DoctorsController{
                        $_SESSION['logged'] = true;
                        $_SESSION['email'] = $result->email;
                        $_SESSION['nom'] = $result->nom;
-                          Redirect::to('doctorDash');
+                          Redirect::to('docDash');
                    }
                else{
                   Session::set('error', 'Email ou mot de passe incorrect');
@@ -62,6 +62,7 @@ class DoctorsController{
              );
              $result = Doctors::Add($data);
              move_uploaded_file($_FILES['image']['tmp_name'], 'Public/Assets/upload/'.$_FILES['image']['name']);
+             
               if($result == "ok"){
                  Session::set('success', 'docteur ajouté');
                 Redirect::to('adminDoc');

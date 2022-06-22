@@ -3,6 +3,7 @@
   if(isset($_POST["submit"])){
     $data = new DoctorsController();
     $newDoctor = $data->AddDoctor();
+    
   }
 ?>
 <!DOCTYPE html>
@@ -31,12 +32,12 @@
                 <div class="form-group mb-2">
                     <label for="nom">Nom</label>
                     <input type="text" class="form-control" id="nom" name="nom" placeholder="nom">
-                    <div class="errorNom text-danger"></div>
+                    <div class="text-danger"></div>
                 </div>
                 <div class="form-group mb-2">
                     <label for="email">Email</label>
                     <input type="email" id="email" name="email" class="form-control" placeholder="email" >
-                    <div class="errorEmail text-danger"></div>
+                    <div class="text-danger"></div>
                 </div>
                 <div class="form-group mb-2">
                     <label for="date">Password</label>

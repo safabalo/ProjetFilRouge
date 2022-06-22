@@ -26,6 +26,7 @@ class PatientController{
                 $_SESSION['logged'] = true;
                 $_SESSION['email'] = $result->email;
                 $_SESSION['nomcomplet'] = $result->nom;
+                $_SESSION['id_patient'] = $result->id_patient;
                 header('location: patientDoc');
             }
         else{
