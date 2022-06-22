@@ -31,7 +31,8 @@ class PatientController{
             }
         else{
            Session::set('error', 'Email ou mot de passe incorrect');
-            header('location: home');
+           Redirect::to('home');
+            // header('location: home');
         
         }
     }
@@ -62,8 +63,8 @@ class PatientController{
              );
              $result = Patient::Add($data);
               if($result == "ok"){
-                //  Session::set('success', 'professeur ajouté');
-                Redirect::to('Login');
+                 Session::set('success', 'Docteur ajouté');
+                 Redirect::to('Login');
                 // header('location: Login');
              }else{
                  echo $result;
@@ -85,31 +86,28 @@ class PatientController{
             move_uploaded_file($_FILES['image']['tmp_name'], 'Public/Assets/upload/'.$_FILES['image']['name']);
             $result =  Patient::update($data);
             if($result == "ok"){
-                // Session::set('success', 'professeur modifié');
-                header('location: adminDoc');
+                Session::set('success', 'Docteur modifié');
+                Redirect::to('patientPara');
+                // header('location: adminDoc');
             }else{
                 echo $result;
             }
         }
    }
-    public function DeleteDoctor(){
-        if(isset($_POST['id_patient'])){
-            $data['id_patient'] = $_POST['id_patient'];
-            $result = Patient::delete($data);
-        if($result === "ok"){
-            // Session::set('success', 'professeur supprimé');
-            header("location: adminDoc");
-        }else{
-            echo $result;
-        }
-    }
+//     public function DeletePatient(){
+//         if(isset($_POST['id_patient'])){
+//             $data['id_patient'] = $_POST['id_patient'];
+//             $result = Patient::delete($data);
+//         if($result === "ok"){
+//             Session::set('success', 'Docteur supprimé');
+//             Redirect::to('adminDoc');
+//         }else{
+//             echo $result;
+//         }
+//     }
 
-  }
+//   }
 
-    // public function CountAllProfs(){  
-    //     $prof = professeurs::CountAll();
-    //     return $prof; 
-    // }
   
     // public function ProfFemme(){  
     //     $prof = professeurs::CountFemme();
@@ -121,3 +119,4 @@ class PatientController{
     //     return $prof; 
     // }
 }
+?>

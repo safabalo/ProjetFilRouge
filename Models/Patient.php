@@ -80,23 +80,21 @@ class Patient
            echo 'erreur' .$ex->getMessage();
        } 
    }
-
-    // static function login($data) {
-    //     $email = $data["email"];
-    //         try{
-    //             $query="SELECT * FROM patients WHERE email = :email";
-    //             $stmt = DB::connect()->prepare($query);
-    //             $stmt->execute(array(":email"=>$email));
-    //             $Patients = $stmt->fetch(PDO::FETCH_OBJ);
-    //             return $Patients;
-    //             if($stmt->execute()){
-    //                 return "oki";
-    //         } 
-    //         }catch(PDOException $ex){
-    //             echo 'error' .$ex->getMessage();
-    //         } 
-        
-    //  }
+   static public function CountAll(){
+    $stmt = DB::connect()->prepare('SELECT count(*) FROM patients');
+    $stmt->execute();
+    return $stmt->fetch();
+    }
+       static public function CountFemme(){
+        $stmt = DB::connect()->prepare("SELECT count(*) FROM patients WHERE genre='Femme'");
+        $stmt->execute();
+        return $stmt->fetch();
+      }
+      static public function CountHomme(){
+        $stmt = DB::connect()->prepare("SELECT count(*) FROM patients WHERE genre='Homme'");
+        $stmt->execute();
+        return $stmt->fetch();
+      }
 }
 
 ?>

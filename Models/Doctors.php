@@ -92,12 +92,11 @@ class Doctors{
             echo 'erreur' .$ex->getMessage();
         } 
     }
-
-    // static public function CountAll(){
-    //     $stmt = DB::connect()->prepare('SELECT count(*) FROM professeurs');
-    //     $stmt->execute();
-    //     return $stmt->fetch();
-    // }
+    static public function CountAll(){
+        $stmt = DB::connect()->prepare('SELECT count(*) FROM doctors');
+        $stmt->execute();
+        return $stmt->fetch();
+    }
     // static public function CountFemme(){
     //     $stmt = DB::connect()->prepare("SELECT count(*) FROM professeurs WHERE Genre='Femme'");
     //     $stmt->execute();

@@ -3,9 +3,9 @@ require_once './autoload.php';
 require_once './Controllers/HomeController.php';
 
 $home = new HomeController();
-$pages= ['home','Login', 'LoginDoc', 'Loginad', 'signUp', 'adminDash', 'adminlogin', 'adminDoc', 'addDoc', 'editDoc', 'deleteDoc', 'patientDash', 'patientlogin', 'patientDoc','patientPara', 'docDash', 'rendezVous','LogOut' ];
+$pages= ['home','Login', 'LoginDoc', 'Loginad', 'signUp', 'adminDash', 'adminlogin', 'adminDoc', 'addDoc', 'editDoc', 'deleteDoc', 'patientDash', 'patientlogin', 'patientDoc','patientPara', 'docDash', 'rendezVous','LogOut', 'adminPat' ];
 
-  if(isset($_SESSION['logged'])){      
+  if(isset($_SESSION['logged']) && $_SESSION['logged'] == true){      
     if(isset($_GET['page'])){
         if(in_array($_GET['page'],$pages)){
          $page = $_GET['page'];

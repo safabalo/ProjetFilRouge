@@ -25,38 +25,7 @@
 <body>
         <main class="">
             <section class="d-flex ">
-                <nav class="sidebar nav navbar d-flex flex-column vh-100">
-                    <div class="navbar-brand d-flex">
-                        <span class="iconify" data-icon="healthicons:ministry-of-health-outline" style="color: #2155cd;" data-width="30" data-height="30" id="sidebarToggle"></span>
-                        <p>Your Hospital</p>
-                    </div>
-                    <div class="">
-                        <img src=""></img>
-                        <p style="color: #2155cd;"><?php echo $_SESSION['nomcomplet']?></p>
-                    <div>
-                        <ul class="nav d-flex flex-column mb-3" id="list">
-                            <li class="nav-items d-flex">
-                            <span class="iconify" data-icon="healthicons:doctor-male-outline" style="color: #2155cd;" data-width="30" data-height="30"></span>
-                                <a href="adminDash.html" class="nav-link">Rendez-vous</a>
-                            </li>
-                            <li class="nav-items d-flex mb-3 w-100">
-                                <span class="iconify" data-icon="healthicons:inpatient-outline" style="color: #2155cd;" data-width="30" data-height="30"></span>
-                                <a href="#" class="nav-link">Rendez-vous pris</a>
-                            </li>
-                            <li class="nav-items d-flex">
-                                <form method="POST" class="w-100 d-flex" action="patientPara" >
-                                <input type="hidden" name="id" value="<?php echo $patient['id'] ?>">
-                                <span class="iconify" data-icon="clarity:settings-line" style="color: #2155cd;" data-width="30" data-height="30"></span>
-                                <a href="" class="nav-link">Parametres</a>
-                                </form>
-                            </li>
-                            <li class="nav-items d-flex mb-3" id="logout">
-                                <span class="iconify" data-icon="carbon:logout" style="color: #2155cd;" data-width="30" data-height="30"></span>
-                                <a href="LogOut" class="nav-link"> LogOut</a>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
+<?php require('./Views/sidebarpatient.php')?>
                 <div class="main" style="width: 90%;">
                     <div class="d-flex justify-content-between" >
                         <span class="iconify" data-icon="material-symbols:arrow-circle-left-outline" style="color: #2155cd;" data-width="30" data-height="30" onclick=""></span>

@@ -98,7 +98,7 @@ class DoctorsController{
             $data['id_doctor'] = $_POST['id_doctor'];
             $result = Doctors::delete($data);
         if($result === "ok"){
-            // Session::set('success', 'professeur supprimé');
+            Session::set('success', 'Docteur supprimé');
             Redirect::to('adminDoc');
             // header("location:adminDoc");
         }else{
@@ -108,10 +108,10 @@ class DoctorsController{
 
   }
 
-    // public function CountAllProfs(){  
-    //     $prof = professeurs::CountAll();
-    //     return $prof; 
-    // }
+    public function CountAllDoctors(){  
+        $doc = Doctors::CountAll();
+        return $doc; 
+    }
   
     // public function ProfFemme(){  
     //     $prof = professeurs::CountFemme();
