@@ -1,5 +1,12 @@
 <?php 
-
+  if(isset($_SESSION['id_patient'])) { 
+    $existPat = new PatientController;
+    $patient = $existPat->getOnePatient();
+}
+if(isset($_POST['submit'])){
+    $existPat = new PatientController;
+    $existPat->UpdatePatient();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,15 +34,11 @@
                     <span class="iconify" data-icon="clarity:notification-outline-badged" style="color: #2155cd;" data-width="30" data-height="30"></span>
                 </div>
                 <div class="container-xl mt-1">
-                <div class="d-flex justify-content-center">
-                    <img src="" width="120px" height="120px" style="border-radius: 50%; border:1px solid #2155cd;"/>
-                </div>
                 <form action="" method="POST" enctype="multipart/form-data">
-                    <label for="image">Votre image</label>
-                    <input type="file" class="form-control" id="image" name="image" placeholder="image" >
+                    <input type="hidden" name="id_patient" value="<?php echo $_SESSION['id_patient'] ?>">
                     <div class="form-group">
                         <label for="">Nom</label>
-                        <input type="text" class="form-control" name="nomcomplet" id="nom" placeholder="Nom complet" value="<?php echo $patient->nom;?>">
+                        <input type="text" class="form-control" name="nomcomplet" id="nomcomplet" placeholder="Nom complet" value="<?php echo $patient->nomcomplet;?>">
                         <label for="">Email</label>
                         <input type="email" class="form-control" name="email" id="email" placeholder="Email" value="<?php echo $patient->email;?>">
                         <label for="date_naissance">Date de naissance</label>
@@ -48,13 +51,9 @@
                             <option value="Homme"<?php echo ($patient->genre === 'Homme') ? 'selected': '';?>>Homme</option>
                             <option value="Femme"<?php echo ($patient->genre === 'Femme') ? 'selected': '';?>>Femme</option>
                         </select>
-                        <label for="">Mot de passe</label>
-                        <input type="text" class="form-control" name="password" id="password" placeholder="mot de passe" value="<?php echo $patient->password;?>">
-                        <label for="">Répéter le Mot de passe</label>
-                        <input type="password" class="form-control" name="repeat_password" id="repeat_password" placeholder="Répéter mot de passe">
                     </div>
                     <div class="d-flex justify-content-center">
-                        <button type="submit" class="btn btn-primary">Enregistrer</button>
+                        <button type="submit" name="submit" class="btn btn-primary">Enregistrer</button>
                     </div>
                 </form>
                 </div>

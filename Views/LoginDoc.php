@@ -19,7 +19,7 @@ if(isset($_POST['submit'])){
     <link rel="shortcut icon" href="./Public/SVG&PNG/favicon.png" type="image/x-icon">
     <title>Rendez-vous || Login</title>
 </head>
-<body class="d-flex form_body">
+<body class="d-flex form_body" style="background-color: white;">
     <section class="w-50 ms-5 form_sect">
         <form action="" method="post" class="w-50 formulaire_login">
             <span class="iconify logo mb-3" data-icon="healthicons:ministry-of-health-outline" style="color: #2155cd;" data-width="50" data-height="50"></span>

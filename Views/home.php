@@ -10,7 +10,7 @@
     <link rel="shortcut icon" href="./Public/SVG&PNG/favicon.png" type="image/x-icon">
     <title>Rendez-vous || Page principale</title>
 </head>
-<body class="landing_body">
+<body class="landing_body" style="background-color: white;">
     <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
         <div class="container"><a class="navbar-brand logo" href="#">
             <span class="iconify logo_landing" data-icon="healthicons:ministry-of-health-outline" style="color: #2155cd;" data-width="50" data-height="50"></span>

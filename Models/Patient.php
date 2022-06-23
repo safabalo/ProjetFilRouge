@@ -52,14 +52,13 @@ class Patient
         }
     } 
     static public function update($data){
-        $stmt = DB::connect()->prepare("UPDATE `patients` SET image=:image, nomcomplet=:nomcomplet, email=:email, date_dispo=:date_dispo, seance=:seance, specialite=:specialite WHERE  id_patient=:id_patient");
+        $stmt = DB::connect()->prepare("UPDATE `patients` SET image=:image, nomcomplet=:nomcomplet, email=:email,genre=:genre, phone=:phone, date_naissance=:date_naissance WHERE  id_patient=:id_patient");
             $stmt->bindParam(":image", $data["image"]);
             $stmt->bindParam(":nomcomplet", $data["nomcomplet"]);
             $stmt->bindParam(":email", $data["email"]);
             $stmt->bindParam(":genre", $data["genre"]);
             $stmt->bindParam(":phone", $data["phone"]);
             $stmt->bindParam(":date_naissance", $data["date_naissance"]);
-            $stmt->bindParam(":password", $data["password"]);
             $stmt->bindParam(":id_patient", $data["id_patient"]);
         if($stmt->execute()){
             return 'ok';

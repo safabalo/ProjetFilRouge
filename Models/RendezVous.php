@@ -20,6 +20,19 @@ class RendezVous {
     //         echo 'error' .$ex->getMessage();
     //     } 
     // }
+    static function getRendezDoc($data){
+        $id_doctor = $data["id_doctor"];
+        try{
+            $query="SELECT * FROM `rendez_vous` WHERE id_doctor=:id_doctor";
+            $stmt = DB::connect()->prepare($query);
+            $stmt->execute(array(":id_doctor"=>$id_doctor));
+            $rendezDoc=$stmt->fetch(PDO::FETCH_OBJ);
+            return $rendezDoc;
+        }catch(PDOException $ex){
+            echo 'error' .$ex->getMessage();
+        } 
+
+    }
     static public function Add($data){
        
         $stmt = DB::connect()->prepare("INSERT INTO `rendz-vous` SET rendezvous=:rendezvous , patient=:id_patient, docteur=:id_docteur");

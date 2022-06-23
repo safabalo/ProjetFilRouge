@@ -18,10 +18,10 @@
                             </li>
                             <li class="nav-items d-flex" style="<?php if(basename($_SERVER["REQUEST_URI"]) == 'patientPara') echo "background-color:rgb(121, 218, 232);"?>">
                                 <form method="POST" class="w-100 d-flex" action="patientPara" >
-                                <input type="hidden" name="id" value="<?php echo $patient['id_patient'] ?>">
+                                <!-- <input type="hidden" name="id" value="<//?php echo $_SESSION['id_patient'] ?>"> -->
                                 <span class="iconify" data-icon="clarity:settings-line" style="color: #2155cd;" data-width="30" data-height="30"></span>
                                 <a href="patientPara" class="nav-link">Parametres</a>
-                                </form>
+                                <!-- </form> -->
                             </li>
                             <li class="nav-items d-flex mb-3" id="logout">
                                 <span class="iconify" data-icon="carbon:logout" style="color: #2155cd;" data-width="30" data-height="30"></span>

@@ -1,7 +1,7 @@
 <?php
     include('Models/Patient.php');
     include('app/classes/Redirect.php');
-    include('app/classes/Sessions.php');
+    include('app/classes/Session.php');
 
 class PatientController{
     public function getAllPatients(){
@@ -38,9 +38,9 @@ class PatientController{
     }
 }
     public function getOnePatient(){
-        if(isset($_POST['id_patient'])){
+        if(isset($_SESSION['id_patient'])){
             $data = array(
-                'id_patient' => $_POST['id_patient'] 
+                'id_patient' => $_SESSION['id_patient'] 
             );
         }
         $patients = Patient::getPatient($data);
@@ -94,6 +94,7 @@ class PatientController{
             }
         }
    }
+
 //     public function DeletePatient(){
 //         if(isset($_POST['id_patient'])){
 //             $data['id_patient'] = $_POST['id_patient'];

@@ -16,7 +16,7 @@
     <link rel="shortcut icon" href="./Public/SVG&PNG/favicon.png" type="image/x-icon">
     <title>Rendez-vous || Inscription</title>
 </head>
-<body class="d-flex form_body sign_form">
+<body class="d-flex form_body sign_form" style="background-color: white;">
     <section class="w-50 ms-5 form_sect">
         <form action="" method="POST" class="w-50 formulaire" >
             <span class="iconify logo mb-2" data-icon="healthicons:ministry-of-health-outline" style="color: #2155cd;" data-width="50" data-height="50"></span>
@@ -54,11 +54,11 @@
                 <button type="submit" name="submit" class="btn sub text-white">Inscrit toi</button>
             </div>
         </form>
-            <div class="d-flex justify-content-around">
-                <a href="https://mail.google.com/" class="btn">
+            <div class="d-flex justify-content-center" style="margin-right:20%;">
+                <a href="https://mail.google.com/" class="btn" >
                     <img src="./Public/SVG&PNG/googleicon.png" alt="" width="30px" height="30px" class="signicons">
                 </a>
-                <a href="https://facebook.com" class="btn">
+                <a href="https://facebook.com" class="btn mx-4">
                     <img src="./Public/SVG&PNG/Facebook_icon.png" alt="" width="30px" height="30px" class="signicons">
                 </a>
                 <a href="https://twitter.com" class="btn">

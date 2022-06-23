@@ -1,9 +1,6 @@
 <?php
-  if(isset($_SESSION['id_patient'])) { 
-    $existRendez = new RendezVousController();
-    $rendez = $existRendez->getRendezVousDoc();
-}
-
+$data = new RendezVousController();
+$rendez = $data->getAllRendezVous();
 
 ?>
 <!DOCTYPE html>
@@ -24,7 +21,32 @@
 <body>
     <main class="">
         <section class="d-flex ">
-        <?php require('./Views/sidebarDoc.php')?>
+            <nav class="sidebar nav navbar d-flex flex-column vh-100">
+                <div class="navbar-brand d-flex">
+                    <span class="iconify" data-icon="healthicons:ministry-of-health-outline" style="color: #2155cd;" data-width="30" data-height="30" id="sidebarToggle"></span>
+                    <p>Your Hospital</p>
+                </div>
+                <div>
+                    <ul class="nav d-flex flex-column mb-3" id="list">
+                        <li class="nav-items d-flex">
+                        <span class="iconify" data-icon="healthicons:doctor-male-outline" style="color: #2155cd;" data-width="30" data-height="30"></span>
+                            <a href="adminDash.html" class="nav-link">Rendez-vous</a>
+                        </li>
+                        <li class="nav-items d-flex mb-3">
+                            <span class="iconify" data-icon="healthicons:inpatient-outline" style="color: #2155cd;" data-width="30" data-height="30"></span>
+                            <a href="#" class="nav-link">Symptomes</a>
+                        </li>
+                        <li class="nav-items d-flex">
+                            <span class="iconify" data-icon="clarity:settings-line" style="color: #2155cd;" data-width="30" data-height="30"></span>
+                            <a href="" class="nav-link">Parametres</a>
+                        </li>
+                        <li class="nav-items d-flex mb-3" id="logout">
+                            <span class="iconify" data-icon="carbon:logout" style="color: #2155cd;" data-width="30" data-height="30"></span>
+                            <a href="LogOut" class="nav-link"> LogOut</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
             <div class="main" style="width: 90%;">
                 <div class="d-flex justify-content-between" >
                     <span class="iconify" data-icon="material-symbols:arrow-circle-left-outline" style="color: #2155cd;" data-width="30" data-height="30" onclick=""></span>
@@ -76,11 +98,11 @@
                                         </span>
                                         </td>
                                     <!-- <td><img src="Public/Assets/upload/<?//php echo $doctor["image"] ?>" width="50px" height="50px"></td> -->
-                                    <td><?php echo $rendezvous->nomcomplet?></td>
-                                    <td><?php echo $rendezvous->phone?></td>
-                                    <td><?php echo $rendezvous->rendezvous?></td>
-                                    <td><?php echo $rendezvous->date_naissance?></td>
-                                    <td><?php echo $rendezvous->genre?></td>
+                                    <td><?php echo $rendezvous["nomcomplet"]?></td>
+                                    <td><?php echo $rendezvous["phone"]?></td>
+                                    <td><?php echo $rendezvous["rendezvous"]?></td>
+                                    <td><?php echo $rendezvous["date_naissance"]?></td>
+                                    <td><?php echo $rendezvous["genre"]?></td>
                                     
                                     <!-- <td class="d-flex flex-row">
                                         </td> -->

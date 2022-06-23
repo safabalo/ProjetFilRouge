@@ -17,6 +17,7 @@ class DoctorsController{
                        $_SESSION['logged'] = true;
                        $_SESSION['email'] = $result->email;
                        $_SESSION['nom'] = $result->nom;
+                       $_SESSION['id_doctor'] = $result->id_doctor;
                           Redirect::to('docDash');
                    }
                else{

@@ -9,6 +9,15 @@ class RendezVousController{
         $rendez = RendezVous::getAll();
         return $rendez; 
     }
+    public function getRendezVousDoc(){
+        if(isset($_SESSION['id_doctor'])){
+            $data = array(
+                'id_doctor' => $_SESSION['id_doctor'] 
+            );
+        }
+        $rendez = RendezVous::getRendezVousDoc($data);
+        return $rendez;
+    }
 
     // public function findProfesseur(){
     //     if(isset($_POST['search'])){
