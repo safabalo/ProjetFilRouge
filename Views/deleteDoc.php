@@ -3,5 +3,6 @@
             $deleteDoctor = new DoctorsController();
             $deleteDoctor->DeleteDoctor();
             
+            
         }
 ?>

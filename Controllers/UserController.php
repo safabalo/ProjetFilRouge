@@ -1,5 +1,5 @@
 <?php
-include('Models/Patient.php');
+require_once('Models/Patient.php');
 
 class UserController{
     public function getAllPatients(){

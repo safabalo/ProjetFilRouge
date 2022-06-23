@@ -1,7 +1,7 @@
 <?php
-    include('Models/Patient.php');
-    include('app/classes/Redirect.php');
-    include('app/classes/Session.php');
+    require_once('Models/Patient.php');
+    require_once('app/classes/Redirect.php');
+    require_once('app/classes/Session.php');
 
 class PatientController{
     public function getAllPatients(){
@@ -22,12 +22,15 @@ class PatientController{
         if(isset($_POST['submit'])){
             $data['email'] = $_POST['email'];
             $result = Patient::loginPatient($data);
-            if($result->email === $_POST['email'] && ($_POST['password'] == $result->password)){
+            if($result->email === $_POST['email'] && password_verify($_POST['password'], $result->password)){
                 $_SESSION['logged'] = true;
                 $_SESSION['email'] = $result->email;
                 $_SESSION['nomcomplet'] = $result->nom;
                 $_SESSION['id_patient'] = $result->id_patient;
-                header('location: patientDoc');
+                $_SESSION['role'] = $result->role;
+                // var_dump($_SESSION);
+                Redirect::to('patientDoc');
+                // header('location: patientDoc');
             }
         else{
            Session::set('error', 'Email ou mot de passe incorrect');
@@ -95,29 +98,5 @@ class PatientController{
         }
    }
 
-//     public function DeletePatient(){
-//         if(isset($_POST['id_patient'])){
-//             $data['id_patient'] = $_POST['id_patient'];
-//             $result = Patient::delete($data);
-//         if($result === "ok"){
-//             Session::set('success', 'Docteur supprimé');
-//             Redirect::to('adminDoc');
-//         }else{
-//             echo $result;
-//         }
-//     }
-
-//   }
-
-  
-    // public function ProfFemme(){  
-    //     $prof = professeurs::CountFemme();
-    //     return $prof; 
-    // }
-        
-    // public function ProfHomme(){  
-    //     $prof = professeurs::CountHomme();
-    //     return $prof; 
-    // }
 }
 ?>

@@ -1,7 +1,7 @@
 <?php
-    include('Models/Doctors.php');
-    include('app/classes/Redirect.php');
-    include('app/classes/Session.php');
+    require_once('Models/Doctors.php');
+    require_once('app/classes/Redirect.php');
+    // include('app/classes/Session.php');
 
 class DoctorsController{
     public function getAllDoctors(){
@@ -18,7 +18,8 @@ class DoctorsController{
                        $_SESSION['email'] = $result->email;
                        $_SESSION['nom'] = $result->nom;
                        $_SESSION['id_doctor'] = $result->id_doctor;
-                          Redirect::to('docDash');
+                       $_SESSION['role'] = $result->role;
+                       Redirect::to('docDash');
                    }
                else{
                   Session::set('error', 'Email ou mot de passe incorrect');

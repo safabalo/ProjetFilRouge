@@ -1,7 +1,7 @@
 <?php
-    include('Models/RendezVous.php');
-    include('app/classes/Redirect.php');
-    include('app/classes/Session.php');
+    require_once('Models/RendezVous.php');
+    require_once('app/classes/Redirect.php');
+    require_once('app/classes/Session.php');
 
 class RendezVousController{
     public function getAllRendezVous(){

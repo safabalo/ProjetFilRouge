@@ -34,7 +34,7 @@ if(isset($_POST['submit'])){
                     <span class="iconify" data-icon="clarity:notification-outline-badged" style="color: #2155cd;" data-width="30" data-height="30"></span>
                 </div>
                 <div class="container-xl mt-1">
-                <form action="" method="POST" enctype="multipart/form-data">
+                <form action="" method="POST">
                     <input type="hidden" name="id_patient" value="<?php echo $_SESSION['id_patient'] ?>">
                     <div class="form-group">
                         <label for="">Nom</label>

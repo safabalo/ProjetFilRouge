@@ -34,7 +34,7 @@
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <?php include('./Views/includes/alert.php');?>
-                                        <h2>Gestion des <b>Patients</b></h2>
+                                        <h2>Gestion des <b>Docteurs</b></h2>
                                     </div>
                                     <div class="col-sm-6">
                                         <a href="addDoc" class="btn" style="background-color:#2155cd;"><span class="iconify ms-2" data-icon="carbon:alarm-add" style="color: #0aa1dd;" data-width="20" data-height="20"></span> <span>Ajouté un docteur</span></a>

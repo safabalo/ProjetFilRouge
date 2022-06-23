@@ -1,6 +1,6 @@
 <?php
 include('Models/Admin.php');
-include('app/classes/Redirect.php');
+// include('app/classes/Redirect.php');
 
 class AdminController{
     public function auth(){
@@ -11,6 +11,8 @@ class AdminController{
                 $_SESSION['logged'] = true;
                 $_SESSION['email'] = $result->email;
                 $_SESSION['nom'] = $result->nom;
+                $_SESSION['id'] = $result->id;
+                $_SESSION['role'] = $result->role;
                 Redirect::to('adminDoc');
             }
         else{
