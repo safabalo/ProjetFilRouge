@@ -1,7 +1,7 @@
 <?php
-  if(isset($_SESSION['id_doctor'])) { 
+  if(isset($_SESSION['id_patient'])) { 
     $existRendez = new RendezVousController();
-    $rendez = $existRendez->getRendezVousDoc();
+    $rendez = $existRendez->getRendezVousPat();
    
 }
 ?>
@@ -24,7 +24,7 @@
 <body>
     <main class="">
         <section class="d-flex ">
-        <?php require('./Views/sidebarDoc.php')?>
+        <?php require('./Views/sidebarpatient.php')?>
             <div class="main" style="width: 90%;">
                 <div class="d-flex justify-content-between" >
                     <span class="iconify" data-icon="material-symbols:arrow-circle-left-outline" style="color: #2155cd;" data-width="30" data-height="30" onclick=""></span>
@@ -60,10 +60,9 @@
                                         </th>
                                         <!-- <th>Image</th> -->
                                         <th>Nom</th>
-                                        <th>phone</th>
+                                        <th>email</th>
                                         <th>Rendez-vous</th>
-                                        <th>Date de naissance</th>
-                                        <th>Genre</th>
+                                        <th>Specialite</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -76,11 +75,10 @@
                                         </span>
                                         </td>
                                     <!-- <td><img src="Public/Assets/upload/<?//php echo $doctor["image"] ?>" width="50px" height="50px"></td> -->
-                                    <td><?php echo $rendezvous->nomcomplet?></td>
-                                    <td><?php echo $rendezvous->phone?></td>
+                                    <td><?php echo $rendezvous->nom?></td>
+                                    <td><?php echo $rendezvous->email?></td>
                                     <td><?php echo $rendezvous->rendezvous?></td>
-                                    <td><?php echo $rendezvous->date_naissance?></td>
-                                    <td><?php echo $rendezvous->genre?></td>
+                                    <td><?php echo $rendezvous->specialite?></td>
                                     
                                     <!-- <td class="d-flex flex-row">
                                         </td> -->

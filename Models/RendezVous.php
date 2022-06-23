@@ -23,11 +23,24 @@ class RendezVous {
     static function getRendezDoc($data){
         $id_doctor = $data["id_doctor"];
         try{
-            $query="SELECT * FROM `rendez_vous` WHERE id_doctor=:id_doctor";
+            $query="SELECT * FROM `rendz-vous` INNER JOIN patients ON patients.id_patient=`rendz-vous`.`patient` WHERE docteur=:id_doctor";
             $stmt = DB::connect()->prepare($query);
             $stmt->execute(array(":id_doctor"=>$id_doctor));
-            $rendezDoc=$stmt->fetch(PDO::FETCH_OBJ);
+            $rendezDoc=$stmt->fetchAll(PDO::FETCH_OBJ);
             return $rendezDoc;
+        }catch(PDOException $ex){
+            echo 'error' .$ex->getMessage();
+        } 
+    }
+
+    static function getRendezPat($data){
+        $id_patient = $data["id_patient"];
+        try{
+            $query="SELECT * FROM `rendz-vous` INNER JOIN doctors ON doctors.id_doctor=`rendz-vous`.`docteur` WHERE patient=:id_patient;";
+            $stmt = DB::connect()->prepare($query);
+            $stmt->execute(array(":id_patient"=>$id_patient));
+            $rendezPat=$stmt->fetchAll(PDO::FETCH_OBJ);
+            return $rendezPat;
         }catch(PDOException $ex){
             echo 'error' .$ex->getMessage();
         } 

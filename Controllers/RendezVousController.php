@@ -15,7 +15,16 @@ class RendezVousController{
                 'id_doctor' => $_SESSION['id_doctor'] 
             );
         }
-        $rendez = RendezVous::getRendezVousDoc($data);
+        $rendez = RendezVous::getRendezDoc($data);
+        return $rendez;
+    }
+    public function getRendezVousPat(){
+        if(isset($_SESSION['id_patient'])){
+            $data = array(
+                'id_patient' => $_SESSION['id_patient'] 
+            );
+        }
+        $rendez = RendezVous::getRendezPat($data);
         return $rendez;
     }
 

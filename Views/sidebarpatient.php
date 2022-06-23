@@ -12,9 +12,9 @@
                             <span class="iconify" data-icon="healthicons:doctor-male-outline" style="color: #2155cd;" data-width="30" data-height="30"></span>
                                 <a href="patientDoc" class="nav-link">Rendez-vous</a>
                             </li>
-                            <li class="nav-items d-flex mb-3 w-100" style="<?php if(basename($_SERVER["REQUEST_URI"]) == 'patientRendez') echo "background-color:rgb(121, 218, 232);"?>">
+                            <li class="nav-items d-flex mb-3 w-100" style="<?php if(basename($_SERVER["REQUEST_URI"]) == 'mesRendezVous') echo "background-color:rgb(121, 218, 232);"?>">
                                 <span class="iconify" data-icon="healthicons:inpatient-outline" style="color: #2155cd;" data-width="30" data-height="30"></span>
-                                <a href="#" class="nav-link">Rendez-vous pris</a>
+                                <a href="mesRendezVous" class="nav-link">Rendez-vous pris</a>
                             </li>
                             <li class="nav-items d-flex" style="<?php if(basename($_SERVER["REQUEST_URI"]) == 'patientPara') echo "background-color:rgb(121, 218, 232);"?>">
                                 <form method="POST" class="w-100 d-flex" action="patientPara" >
