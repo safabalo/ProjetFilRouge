@@ -7,7 +7,7 @@ class AdminController{
         if(isset($_POST['submit'])){
             $data['email'] = $_POST['email'];
             $result = Admin::loginAdmin($data);
-            if($result->email === $_POST['email'] && ($_POST['password'] == $result->password)){
+            if($result->email === $_POST['email'] && password_verify($_POST['password'], $result->password)){
                 $_SESSION['logged'] = true;
                 $_SESSION['email'] = $result->email;
                 $_SESSION['nom'] = $result->nom;

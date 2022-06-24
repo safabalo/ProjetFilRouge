@@ -13,7 +13,7 @@ class DoctorsController{
                if(isset($_POST['submit'])){
                    $data['email'] = $_POST['email'];
                    $result = Doctors::loginDoctor($data);
-                   if($result->email === $_POST['email'] && ($_POST['password'] == $result->password)){
+                   if($result->email === $_POST['email'] && password_verify($_POST['password'], $result->password)){
                        $_SESSION['logged'] = true;
                        $_SESSION['email'] = $result->email;
                        $_SESSION['nom'] = $result->nom;
@@ -66,9 +66,8 @@ class DoctorsController{
              move_uploaded_file($_FILES['image']['tmp_name'], 'Public/Assets/upload/'.$_FILES['image']['name']);
              
               if($result == "ok"){
-                 Session::set('success', 'docteur ajouté');
+                 Session::set('success', 'Docteur ajouté');
                 Redirect::to('adminDoc');
-                // header('location: adminDoc');
              }else{
                  echo $result;
              }
@@ -87,9 +86,8 @@ class DoctorsController{
             );
             $result =  Doctors::update($data);
             if($result == "ok"){
-                Session::set('success', 'docteur modifié');
+                Session::set('info', 'Docteur modifié');
                 Redirect::to('adminDoc');
-                // header('location: adminDoc');
             }else{
                 echo $result;
             }
@@ -100,9 +98,9 @@ class DoctorsController{
             $data['id_doctor'] = $_POST['id_doctor'];
             $result = Doctors::delete($data);
         if($result === "ok"){
-            Session::set('success', 'Docteur supprimé');
             Redirect::to('adminDoc');
-            // header("location:adminDoc");
+            Session::set('success', 'Docteur supprimé');
+
         }else{
             echo $result;
         }
@@ -115,13 +113,4 @@ class DoctorsController{
         return $doc; 
     }
   
-    // public function ProfFemme(){  
-    //     $prof = professeurs::CountFemme();
-    //     return $prof; 
-    // }
-        
-    // public function ProfHomme(){  
-    //     $prof = professeurs::CountHomme();
-    //     return $prof; 
-    // }
 }

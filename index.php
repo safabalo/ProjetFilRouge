@@ -6,13 +6,16 @@ require_once './Controllers/AdminController.php';
 require_once './Controllers/PatientController.php';
 require_once './app/classes/Redirect.php';
 require_once './app/classes/Session.php';
-
 $home = new HomeController();
 $pages=['home', 'Login', 'signUp', 'Loginad' , 'LoginDoc' ];
-$pagesPat= ['home','Login', 'signUp', 'patientDoc','patientPara', 'rendezVous','LogOut', 'mesRendezVous' ];
-$pagesDoc= ['home','LoginDoc', 'docDash', 'rendezVous','LogOut', 'mesRendezVous' ];
-$pagesAd= ['home','Loginad', 'adminDash', 'adminlogin', 'adminDoc', 'addDoc', 'editDoc', 'deleteDoc', 'adminPat', 'LogOut'];
-  if(isset($_SESSION['logged']) && $_SESSION['logged'] == true){      
+$pagesPat= ['patientDoc','patientPara', 'rendezVous','LogOut', 'mesRendezVous' ];
+$pagesDoc= ['LoginDoc', 'docDash', 'rendezVous','LogOut', 'mesRendezVous' ];
+$pagesAd= ['Loginad', 'adminDash', 'adminlogin', 'adminDoc', 'addDoc', 'editDoc', 'deleteDoc', 'adminPat', 'LogOut'];
+if(!isset($_GET['page'])){
+   $home->index("home");
+  exit;
+}
+   if(isset($_SESSION['logged']) && $_SESSION['logged'] == true){      
     if(isset($_GET['page'])){
         if(in_array($_GET['page'],$pagesPat) || in_array($_GET['page'],$pagesDoc) || in_array($_GET['page'],$pagesAd)){
          if(in_array($_GET['page'],$pagesPat) && $_SESSION['role'] == 'patient'){

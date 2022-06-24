@@ -40,7 +40,7 @@
             </select>
             <div class="form-group mb-2">
                 <label for="date_naissance" class="label fw-bold">Date de naissance</label>
-                <input type="date" class="form-control inputs" id="date_naissance" name="date_naissance">
+                <input type="date" class="form-control inputs" id="date_naissance" name="date_naissance" min="02-01-2003">
             </div>
             <div class="form-group mb-2">
                 <label for="password" class="label fw-bold">Mot de passe</label>

@@ -10,13 +10,6 @@ class PatientController{
         return $patients; 
     }
 
-    // public function findProfesseur(){
-    //     if(isset($_POST['search'])){
-    //         $data = array('search' => $_POST['search']);
-    //     }
-    //     $professeurs = Professeurs::searchProfesseur($data);
-    //     return $professeurs;
-    // }
 
     public function auth(){
         if(isset($_POST['submit'])){
@@ -28,14 +21,11 @@ class PatientController{
                 $_SESSION['nomcomplet'] = $result->nom;
                 $_SESSION['id_patient'] = $result->id_patient;
                 $_SESSION['role'] = $result->role;
-                // var_dump($_SESSION);
                 Redirect::to('patientDoc');
-                // header('location: patientDoc');
-            }
-        else{
+            }else{
            Session::set('error', 'Email ou mot de passe incorrect');
            Redirect::to('home');
-            // header('location: home');
+
         
         }
     }
@@ -66,9 +56,9 @@ class PatientController{
              );
              $result = Patient::Add($data);
               if($result == "ok"){
-                 Session::set('success', 'Docteur ajouté');
+                 Session::set('success', 'Votre compte est créé avec succès');
                  Redirect::to('Login');
-                // header('location: Login');
+
              }else{
                  echo $result;
              }
@@ -89,9 +79,9 @@ class PatientController{
             move_uploaded_file($_FILES['image']['tmp_name'], 'Public/Assets/upload/'.$_FILES['image']['name']);
             $result =  Patient::update($data);
             if($result == "ok"){
-                Session::set('success', 'Docteur modifié');
+                Session::set('info', 'Votre compte a été modifier');
                 Redirect::to('patientPara');
-                // header('location: adminDoc');
+
             }else{
                 echo $result;
             }
